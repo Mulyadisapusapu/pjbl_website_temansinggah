@@ -1,0 +1,127 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "inter", sans-serif;
+  display: flex;
+  height: 100vh;
+  background-color: #fff;
+}
+
+.bagian-kiri {
+  flex: 1;
+  background-color: #8d330c;
+  border-top-right-radius: 26px;
+  border-bottom-right-radius: 26px;
+}
+
+.bagian-kanan {
+  flex: 1;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo {
+  margin: 0 auto;
+}
+
+.logo img {
+  margin-bottom: -25px;
+  width: 120px;
+}
+
+.welcome {
+  text-align: center;
+}
+
+.welcome h2 {
+  font-size: 24px;
+  margin: inherit;
+  margin-bottom: 10px;
+}
+
+.welcome h3 {
+  font-size: 20px;
+  margin-bottom: -5px;
+  text-align: center;
+}
+
+.kotak-input input {
+  display: block;
+  width: 100%;
+  padding: 12px 18px;
+  margin: 20px 0 10px;
+  border: 1px solid #ccc;
+  border-radius: 30px;
+  font-size: 16px;
+}
+
+.tombol-daftar button {
+  width: 100%;
+  background-color: #8d330c;
+  color: #fff;
+  padding: 12px 18px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 30px;
+}
+
+.tombol-daftar button {
+  background-color: #8d330c;
+  color: #fff;
+  padding: 15px;
+  border: none;
+  border-radius: 30px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.tombol-daftar button:hover {
+  background-color: #8d330c;
+}
+
+.atau-daftar-dengan {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 10px;
+  color: #000;
+  font-size: 14px;
+}
+
+.atau-daftar-dengan hr {
+  border: 1px solid rgb(0 0 0);
+  opacity: 0.7;
+  margin-right: 4px;
+  width: 100px;
+}
+
+.sosmed {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 25px;
+}
+
+.sosmed img {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+
+.masuk {
+  text-align: center;
+  font-size: 14px;
+  color: #333;
+  margin-top: -15px;
+}
+
+.masuk a {
+  color: #8d330c;
+  text-decoration: none;
+}

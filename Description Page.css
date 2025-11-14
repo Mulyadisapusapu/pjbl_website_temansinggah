@@ -1,0 +1,101 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "inter";
+}
+
+a {
+  text-decoration: none;
+}
+
+nav {
+  display: flex;
+  background-color: #fff;
+  top: 0;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  height: 60px;
+  box-shadow: 0 2px 10px #8d8a8a;
+}
+
+.logo {
+  display: flex;
+  margin-left: 40px;
+  margin-top: -3px;
+  position: relative;
+}
+
+.logo .logo-icon {
+  width: 35px;
+  z-index: 2;
+}
+
+.logo .logo-name {
+  width: 178px;
+  z-index: 1;
+  margin-left: -23px;
+  margin-top: 10px;
+}
+
+nav ul li {
+  list-style: none;
+  display: inline-block;
+}
+
+nav ul li a {
+  color: #806b4d;
+  margin-right: 50px;
+  margin-left: 40px;
+  font-size: 14px;
+  align-items: center;
+  display: inline-flex;
+  vertical-align: middle;
+}
+
+.bagian-atas {
+  display: flex;
+}
+
+.tombol {
+  display: flex;
+  gap: 20px;
+}
+
+.tombol-bagikan {
+  display: flex;
+  background-color: #fff;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 20px;
+  border-style: none;
+  gap: 6px;
+}
+
+.tombol-simpan {
+  display: flex;
+  background-color: #fff;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 20px;
+  border-style: none;
+  gap: 5px;
+}
+
+.icon-bagikan {
+  width: 15px;
+}
+
+.icon-simpan {
+  width: 17px;
+}

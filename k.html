@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Filter Pop Up</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap");
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background-color: #f6f7f9;
+        color: #222;
+        font-family: "Inter", sans-serif;
+      }
+
+      .filter-section {
+        max-width: 880px;
+        margin: 60px auto;
+        padding: 40px 60px;
+        border-radius: 20px;
+        background-color: #fff;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+      }
+
+      .filter-header {
+        font-weight: 600;
+        font-size: 18px;
+        margin-bottom: 24px;
+      }
+
+      .filter-list {
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+      }
+
+      .filter-group {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+      }
+
+      .filter-label {
+        font-weight: 600;
+        font-size: 16px;
+        color: #111;
+      }
+
+      .filter-divider {
+        border: none;
+        border-top: 1px solid #e4e4e4;
+        margin: 10px 0;
+      }
+
+      /* 🟢 Masih pakai grid */
+      .filter-options {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+        gap: 16px;
+      }
+
+      /* Tombol filter */
+      .filter-option {
+        padding: 10px 0;
+        border: 1px solid #cfcfcf;
+        border-radius: 30px;
+        background-color: #fff;
+        font-size: 15px;
+        text-align: center;
+        cursor: pointer;
+        transition: all 0.2s ease;
+      }
+
+      .filter-option:hover {
+        background-color: #8d330c;
+        color: #fff;
+        border-color: #8d330c;
+      }
+
+      /* Aktif (bisa ditambah JS nanti) */
+      .filter-option.active {
+        background-color: #8d330c;
+        color: #fff;
+        border-color: #8d330c;
+      }
+
+      /* Rating */
+      .rating-options {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(140px, auto));
+        gap: 14px;
+      }
+
+      .rating-option {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid #cfcfcf;
+        border-radius: 30px;
+        padding: 8px 14px;
+        background-color: #fff;
+        gap: 5px;
+        cursor: pointer;
+        transition: all 0.2s ease;
+      }
+
+      .rating-option:hover {
+        background-color: #8d330c;
+        border-color: #8d330c;
+      }
+
+      .rating-icon {
+        width: 18px;
+        height: 18px;
+        filter: brightness(1);
+        transition: 0.2s;
+      }
+
+      .rating-option:hover .rating-icon {
+        filter: brightness(0) invert(1);
+      }
+
+      /* Tombol bawah */
+      .filter-button {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 35px;
+      }
+
+      .reset-button {
+        color: #444;
+        font-size: 14px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: 0.2s;
+      }
+
+      .reset-button:hover {
+        color: #8d330c;
+      }
+
+      .confirm-button {
+        background-color: #8d330c;
+        color: #fff;
+        border: none;
+        border-radius: 25px;
+        padding: 10px 28px;
+        font-size: 15px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: 0.2s;
+      }
+
+      .confirm-button:hover {
+        background-color: #752b0a;
+      }
+    </style>
+  </head>
+  <body>
+    <section class="filter-section">
+      <div class="filter-header">
+        <p>Filter</p>
+      </div>
+
+      <div class="filter-list">
+        <div class="filter-group">
+          <div class="filter-label">Budaya</div>
+          <div class="filter-options">
+            <span class="filter-option">Jawa</span>
+            <span class="filter-option">Bali</span>
+            <span class="filter-option">Sunda</span>
+            <span class="filter-option">Betawi</span>
+            <span class="filter-option">Minangkabau</span>
+            <span class="filter-option">Toraja</span>
+            <span class="filter-option">Papua</span>
+            <span class="filter-option">Bugis</span>
+          </div>
+        </div>
+
+        <hr class="filter-divider" />
+
+        <div class="filter-group">
+          <div class="filter-label">Jenis</div>
+          <div class="filter-options">
+            <span class="filter-option">Hotel</span>
+            <span class="filter-option">Villa</span>
+            <span class="filter-option">Resort</span>
+            <span class="filter-option">Homestay</span>
+            <span class="filter-option">Guest House</span>
+          </div>
+        </div>
+
+        <hr class="filter-divider" />
+
+        <div class="filter-group">
+          <div class="filter-label">Ulasan</div>
+          <div class="rating-options">
+            <div class="rating-option">
+              <img
+                src="/website_materials/icon_rating.svg"
+                class="rating-icon"
+              />
+              <img
+                src="/website_materials/icon_rating.svg"
+                class="rating-icon"
+              />
+              <img
+                src="/website_materials/icon_rating.svg"
+                class="rating-icon"
+              />
+              <img
+                src="/website_materials/icon_rating.svg"
+                class="rating-icon"
+              />
+              <img
+                src="/website_materials/icon_rating.svg"
+                class="rating-icon"
+              />
+            </div>
+            <div class="rating-option">
+              <img
+                src="/website_materials/icon_rating.svg"
+                class="rating-icon"
+              />
+              <img
+                src="/website_materials/icon_rating.svg"
+                class="rating-icon"
+              />
+              <img
+                src="/website_materials/icon_rating.svg"
+                class="rating-icon"
+              />
+              <img
+                src="/website_materials/icon_rating.svg"
+                class="rating-icon"
+              />
+            </div>
+            <div class="rating-option">
+              <img
+                src="/website_materials/icon_rating.svg"
+                class="rating-icon"
+              />
+              <img
+                src="/website_materials/icon_rating.svg"
+                class="rating-icon"
+              />
+              <img
+                src="/website_materials/icon_rating.svg"
+                class="rating-icon"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="filter-button">
+        <div class="reset-button">Reset Semua Pilihan</div>
+        <button class="confirm-button">Konfirmasi</button>
+      </div>
+    </section>
+  </body>
+</html>

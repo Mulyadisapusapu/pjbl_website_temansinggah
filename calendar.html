@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>calendar pop up</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        color: #000000;
+      }
+
+      .calendar-section {
+        max-width: 900px;
+        margin: 40px auto;
+        padding: 35px 60px;
+        border-radius: 16px;
+        background-color: #fff;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+        font-family: "inter", sans-serif;
+      }
+
+      .calendar-list {
+        display: flex;
+        justify-content: space-between;
+        gap: 60px;
+      }
+
+      .calendar-content {
+        flex: 1;
+        min-width: 350px;
+      }
+
+      .calendar-header {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        margin-bottom: 25px;
+        justify-content: center;
+      }
+
+      .calendar-month {
+        font-size: 18px;
+        font-weight: 600;
+        flex: 1;
+        text-align: center;
+      }
+
+      .month-arrow {
+        border: none;
+        background: none;
+        font-size: 20px;
+        cursor: pointer;
+        font-weight: 600;
+        padding: 5px 15px;
+        border-radius: 8px;
+        transition: all 0.2s;
+      }
+
+      .month-arrow:hover {
+        background-color: #f5f5f5;
+      }
+
+      .date-grid {
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        gap: 8px;
+        text-align: center;
+      }
+
+      .empty-date {
+        padding-bottom: 33px;
+      }
+
+      .date-list {
+        display: grid;
+        gap: 17px;
+      }
+
+      .calendar-day {
+        color: #000000;
+        margin-bottom: 5px;
+        font-weight: 600;
+      }
+
+      .calendar-date {
+        cursor: pointer;
+        color: #000000;
+        text-align: center;
+        padding: 8px 0;
+        border-radius: 8px;
+        transition: all 0.2s;
+      }
+
+      .calendar-date:hover {
+        background-color: #f5f5f5;
+      }
+
+      .calendar-button {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 30px;
+      }
+
+      .reset-button {
+        color: #000000;
+        font-size: 14px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: 0.2s;
+      }
+
+      .reset-button:hover {
+        text-decoration: underline;
+      }
+
+      .confirm-button {
+        background-color: #8d330c;
+        color: #fff;
+        border: none;
+        border-radius: 20px;
+        padding: 10px 24px;
+        font-size: 15px;
+        cursor: pointer;
+        transition: 0.2s;
+      }
+
+      .confirm-button:hover {
+        background-color: #7c2e0c;
+      }
+    </style>
+  </head>
+  <body>
+    <section class="calendar-section">
+      <div class="calendar-list">
+        <div class="calendar-content">
+          <div class="calendar-header">
+            <button class="month-arrow">&lt;</button>
+            <h3 class="calendar-month">November 2025</h3>
+          </div>
+          <div class="date-grid">
+            <div class="date-list">
+              <span class="calendar-day">Sen</span>
+              <span class="empty-date"></span>
+              <span class="calendar-date">3</span>
+              <span class="calendar-date">10</span>
+              <span class="calendar-date">17</span>
+              <span class="calendar-date">24</span>
+            </div>
+
+            <div class="date-list">
+              <span class="calendar-day">Sel</span>
+              <span class="empty-date"></span>
+              <span class="calendar-date">4</span>
+              <span class="calendar-date">11</span>
+              <span class="calendar-date">18</span>
+              <span class="calendar-date">25</span>
+            </div>
+
+            <div class="date-list">
+              <span class="calendar-day">Rab</span>
+              <span class="empty-date"></span>
+              <span class="calendar-date">5</span>
+              <span class="calendar-date">12</span>
+              <span class="calendar-date">19</span>
+              <span class="calendar-date">26</span>
+            </div>
+
+            <div class="date-list">
+              <span class="calendar-day">Kam</span>
+              <span class="empty-date"></span>
+              <span class="calendar-date">6</span>
+              <span class="calendar-date">13</span>
+              <span class="calendar-date">20</span>
+              <span class="calendar-date">27</span>
+            </div>
+
+            <div class="date-list">
+              <span class="calendar-day">Jum</span>
+              <span class="empty-date"></span>
+              <span class="calendar-date">7</span>
+              <span class="calendar-date">14</span>
+              <span class="calendar-date">21</span>
+              <span class="calendar-date">28</span>
+            </div>
+
+            <div class="date-list">
+              <span class="calendar-day">Sab</span>
+              <span class="calendar-date">1</span>
+              <span class="calendar-date">8</span>
+              <span class="calendar-date">15</span>
+              <span class="calendar-date">22</span>
+              <span class="calendar-date">29</span>
+            </div>
+
+            <div class="date-list">
+              <span class="calendar-day">Min</span>
+              <span class="calendar-date">2</span>
+              <span class="calendar-date">9</span>
+              <span class="calendar-date">16</span>
+              <span class="calendar-date">23</span>
+              <span class="calendar-date">30</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="calendar-content">
+          <div class="calendar-header">
+            <h3 class="calendar-month">Desember 2025</h3>
+            <button class="month-arrow">&gt;</button>
+          </div>
+
+          <div class="date-grid">
+            <div class="date-list">
+              <span class="calendar-day">Sen</span>
+              <span class="calendar-date">1</span>
+              <span class="calendar-date">8</span>
+              <span class="calendar-date">15</span>
+              <span class="calendar-date">22</span>
+              <span class="calendar-date">29</span>
+            </div>
+
+            <div class="date-list">
+              <span class="calendar-day">Sel</span>
+              <span class="calendar-date">2</span>
+              <span class="calendar-date">9</span>
+              <span class="calendar-date">16</span>
+              <span class="calendar-date">23</span>
+              <span class="calendar-date">30</span>
+            </div>
+
+            <div class="date-list">
+              <span class="calendar-day">Rab</span>
+              <span class="calendar-date">3</span>
+              <span class="calendar-date">10</span>
+              <span class="calendar-date">17</span>
+              <span class="calendar-date">24</span>
+              <span class="calendar-date">31</span>
+            </div>
+
+            <div class="date-list">
+              <span class="calendar-day">Kam</span>
+              <span class="calendar-date">4</span>
+              <span class="calendar-date">11</span>
+              <span class="calendar-date">18</span>
+              <span class="calendar-date">25</span>
+              <span class="empty-date"></span>
+            </div>
+
+            <div class="date-list">
+              <span class="calendar-day">Jum</span>
+              <span class="calendar-date">5</span>
+              <span class="calendar-date">12</span>
+              <span class="calendar-date">19</span>
+              <span class="calendar-date">26</span>
+              <span class="empty-date"></span>
+            </div>
+
+            <div class="date-list">
+              <span class="calendar-day">Sab</span>
+              <span class="calendar-date">6</span>
+              <span class="calendar-date">13</span>
+              <span class="calendar-date">20</span>
+              <span class="calendar-date">27</span>
+              <span class="empty-date"></span>
+            </div>
+
+            <div class="date-list">
+              <span class="calendar-day">Min</span>
+              <span class="calendar-date">7</span>
+              <span class="calendar-date">14</span>
+              <span class="calendar-date">21</span>
+              <span class="calendar-date">28</span>
+              <span class="empty-date"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="calendar-button">
+        <div class="reset-button">Reset Semua Pilihan</div>
+        <button class="confirm-button">Konfirmasi</button>
+      </div>
+    </section>
+  </body>
+</html>

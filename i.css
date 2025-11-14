@@ -1,0 +1,225 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  min-height: 100vh;
+  padding: 40px 20px;
+}
+
+.daftar-penginapan {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Added header styling with gradient and animation */
+.daftar-penginapan h2 {
+  font-size: 32px;
+  margin-bottom: 30px;
+  color: #1a1a1a;
+  text-align: left;
+  animation: fadeInDown 0.8s ease-out;
+}
+
+.daftar-penginapan .rekomendasi-penginapan {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  animation: fadeInUp 0.8s ease-out 0.2s both;
+}
+
+.daftar-penginapan .rekomendasi-penginapan .lihat-semua {
+  display: inline-flex;
+  gap: 8px;
+  color: #d97706;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 8px 16px;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.daftar-penginapan .rekomendasi-penginapan .lihat-semua:hover {
+  background: rgba(217, 119, 6, 0.1);
+  transform: translateX(5px);
+}
+
+/* Enhanced card styling with gradients, shadows, and hover effects */
+.daftar-penginapan .card {
+  border: none;
+  display: inline-block;
+  background: url("https://hariannusantara.com/wp-content/uploads/2019/06/gambar-pemandangan-bagus4.jpg") left / cover
+    no-repeat;
+  border-radius: 16px;
+  position: relative;
+  height: 280px;
+  width: 260px;
+  color: #fff;
+  margin: 12px;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.daftar-penginapan .card:hover {
+  transform: translateY(-15px) scale(1.02);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+}
+
+/* Added overlay gradient for better text visibility and visual appeal */
+.daftar-penginapan .card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.4) 100%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: 1;
+}
+
+.daftar-penginapan .card:hover::before {
+  opacity: 1;
+}
+
+/* Enhanced card text positioning and animation */
+.daftar-penginapan .card .card-text {
+  bottom: 0;
+  position: absolute;
+  left: 0;
+  right: 0;
+  padding: 20px;
+  background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.5) 100%);
+  z-index: 2;
+  transition: all 0.4s ease;
+}
+
+.daftar-penginapan .card:hover .card-text {
+  padding-bottom: 25px;
+}
+
+.daftar-penginapan .card .card-text h3 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  animation: slideUp 0.6s ease-out 0.3s both;
+}
+
+.daftar-penginapan .card .card-text p {
+  font-size: 14px;
+  opacity: 0.95;
+  animation: slideUp 0.6s ease-out 0.4s both;
+}
+
+/* Enhanced rating styling with better spacing and icons */
+.daftar-penginapan .card .rating {
+  display: inline-flex;
+  align-items: center;
+  padding-top: 8px;
+  gap: 6px;
+  font-size: 13px;
+  transition: all 0.3s ease;
+  z-index: 2;
+  position: relative;
+}
+
+.daftar-penginapan .card:hover .rating {
+  gap: 8px;
+}
+
+.daftar-penginapan .card .rating img {
+  width: 16px;
+  height: 16px;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.1));
+  transition: transform 0.3s ease;
+}
+
+.daftar-penginapan .card:hover .rating img {
+  transform: scale(1.1);
+}
+
+.daftar-penginapan .card .rating .total-rating {
+  font-weight: 600;
+  color: #fbbf24;
+}
+
+.daftar-penginapan .card .rating .total-review {
+  font-weight: 400;
+  opacity: 0.9;
+}
+
+/* Added keyframe animations for smooth entrance effects */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Added responsive design for mobile and tablet */
+@media (max-width: 768px) {
+  .daftar-penginapan h2 {
+    font-size: 24px;
+  }
+
+  .daftar-penginapan .card {
+    width: 220px;
+    height: 240px;
+    margin: 8px;
+  }
+
+  .daftar-penginapan .rekomendasi-penginapan {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .daftar-penginapan .card {
+    width: 100%;
+    max-width: 280px;
+    height: 200px;
+  }
+
+  .daftar-penginapan h2 {
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+}
