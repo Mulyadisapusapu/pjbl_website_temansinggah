@@ -38,6 +38,23 @@
         font-family: var(--font);
       }
 
+      #reviewsPopup {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        display: none;
+        height: 100%;
+        justify-content: center;
+        align-items: center;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 9999;
+      }
+
+      #reviewsPopup.active {
+        display: flex;
+      }
+
       .ratings-reviews-layout {
         display: flex;
         height: 533px;
@@ -427,7 +444,7 @@
         <div class="reviews-wrapper">
           <div class="section-header">
             <h3 class="reviews-title">Ulasan Terbaru</h3>
-            <img src="/website_materials/icon_back-x.svg" />
+            <img id="close-button" src="/website_materials/icon_back-x.svg" />
           </div>
           <div class="rating-options">
             <div class="rating-option">

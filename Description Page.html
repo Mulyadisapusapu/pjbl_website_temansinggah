@@ -522,39 +522,40 @@
       saveButton.addEventListener("click", toggleSave);
 
       /*Calendar Popup*/
-   fetch("calendar_popup.html")
-  .then((res) => res.text())
-  .then((html) => {
-    document.getElementById("calendar-popup").innerHTML = html;
+      fetch("calendar_popup.html")
+        .then((res) => res.text())
+        .then((html) => {
+          document.getElementById("calendar-popup").innerHTML = html;
 
-    const calendarPopup = document.getElementById("calendarPopup");
+          const calendarPopup = document.getElementById("calendarPopup");
 
-    const checkinInput = document.getElementById("checkin-input");
-    const checkoutInput = document.getElementById("checkout-input");
+          const checkinInput = document.getElementById("checkin-input");
+          const checkoutInput = document.getElementById("checkout-input");
 
-    function openPopup(anchor) {
-      const rect = anchor.getBoundingClientRect();
+          function openPopup(anchor) {
+            const rect = anchor.getBoundingClientRect();
 
-      calendarPopup.style.top = rect.bottom + window.scrollY + "px";
-      calendarPopup.style.left = rect.left + window.scrollX + "px";
+            calendarPopup.style.top = rect.bottom + window.scrollY + "px";
+            calendarPopup.style.left = rect.left + window.scrollX + "px";
 
-      calendarPopup.classList.add("active");
-    }
+            calendarPopup.classList.add("active");
+          }
 
-    checkinInput.addEventListener("click", () => openPopup(checkinInput));
-    checkoutInput.addEventListener("click", () => openPopup(checkoutInput));
+          checkinInput.addEventListener("click", () => openPopup(checkinInput));
+          checkoutInput.addEventListener("click", () =>
+            openPopup(checkoutInput)
+          );
 
-    window.addEventListener("click", (e) => {
-      if (
-        !calendarPopup.contains(e.target) &&
-        e.target !== checkinInput &&
-        e.target !== checkoutInput
-      ) {
-        calendarPopup.classList.remove("active");
-      }
-    });
-  });
-
+          window.addEventListener("click", (e) => {
+            if (
+              !calendarPopup.contains(e.target) &&
+              e.target !== checkinInput &&
+              e.target !== checkoutInput
+            ) {
+              calendarPopup.classList.remove("active");
+            }
+          });
+        });
 
       /*Guest Popup*/
       fetch("guest_popup.html")
@@ -578,6 +579,35 @@
 
           guestPopup.addEventListener("click", (event) => {
             if (event.target === guestPopup) {
+              closePopup();
+            }
+          });
+        });
+
+        /*Reviews Popup*/
+      fetch("reviews_popup.html")
+        .then((res) => res.text())
+        .then((html) => {
+          document.getElementById("reviews-popup").innerHTML = html;
+
+          const openReviewsPopup = document.getElementById("see-more-button");
+          const closeReviewsPopup = document.querySelector(".close-button");
+          const reviewsPopup = document.getElementById("reviewsPopup");
+
+          function openPopup() {
+           reviewsPopup.classList.add("active");
+          }
+
+          function closePopup() {
+            reviewsPopup.classList.remove("active");
+          }
+
+          openReviewsPopup.addEventListener("click", openPopup);
+
+          closeReviewsPopup.addEventListener("click", closePopup);
+
+          window.addEventListener("click", (event) => {
+            if (event.target === reviewsPopup) {
               closePopup();
             }
           });
