@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Admin | Reservasi</title>
+    <link rel="icon" href="img/logo.jpg">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: #fff;
+            color: #000;
+        }
+
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 240px;
+            height: 100vh;
+            background: #fff;
+            border-right: 1px solid #eee;
+            padding: 25px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            margin-bottom: 30px;
+            margin-left: 6px;
+        }
+
+        .logo img {
+            width: 35px;
+            object-fit: contain;
+        }
+
+        .logo .gambar-nama {
+            width: 140px;
+            width: auto;
+            margin-top: 0;
+        }
+
+        .menu {
+            list-style: none;
+            margin-top: 30px;
+        }
+
+        .menu li {
+            margin-bottom: 10px;
+        }
+
+        .menu a {
+            text-decoration: none;
+            color: #000;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 15px;
+            padding: 10px 15px;
+            border-radius: 8px;
+            transition: 0.25s;
+        }
+
+        .menu .active {
+            background-color: #e8e5e3;
+            font-weight: 500;
+        }
+
+        .menu a:hover {
+            background-color: #f4f4f4;
+        }
+
+        .content {
+            margin-left: 240px;
+            padding: 40px 50px;
+            max-width: 1100px;
+        }
+
+        .content h2 {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 25px;
+        }
+
+        .reservasi-table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .reservasi-table th {
+            text-align: left;
+            padding: 14px 18px;
+            border-bottom: 1px solid #f0f0f0;
+            font-size: 15px;
+        }
+
+        .reservasi-table td {
+            text-align: left;
+            padding: 14px 18px;
+            border-bottom: 1px solid #f0f0f0;
+            font-size: 15px;
+        }
+
+        .reservasi-table th {
+            font-weight: 600;
+            background-color: #fafafa;
+        }
+
+        .status {
+            font-weight: 600;
+            padding: 6px 12px;
+            border-radius: 8px;
+            font-size: 13px;
+            width: fit-content;
+        }
+
+        .confirmed {
+            color: #27ae60;
+            background-color: #eafaf0;
+        }
+
+        .paid {
+            color: #2E86DE;
+            background-color: #eaf1ff;
+        }
+
+        .canceled {
+            color: #E74C3C;
+            background-color: #fdeceb;
+        }
+
+        .pending {
+            color: #F39C12;
+            background-color: #fff4e5;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="sidebar">
+        <div class="logo">
+            <img src="img/logo.jpg" alt="logo">
+            <img src="img/brand-name.svg" class="gambar-nama" alt="brand-name">
+        </div>
+
+        <ul class="menu">
+            <li><a href="dashboardAdmin.html"><img src="img/icon/dashboard.svg">Dashboard</a></li>
+            <li><a href="adminPenginapan.html"><img src="img/icon/penginapan.svg">Penginapan</a></li>
+            <li><a class="active" href="#"><img src="img/icon/reservasi.svg">Reservasi</a></li>
+            <li><a href="adminPenggunjung.html"><img src="img/icon/pengunjung.svg">Pengunjung</a></li>
+        </ul>
+    </div>
+
+    <div class="content">
+        <h2>Reservasi</h2>
+
+        <table class="reservasi-table">
+            <thead>
+                <tr>
+                    <th>Nomor Booking</th>
+                    <th>Nama Tamu</th>
+                    <th>Kontak</th>
+                    <th>Metode Pembayaran</th>
+                    <th>Total Bayar</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>RS001</td>
+                    <td>Ryazan</td>
+                    <td>08123456789</td>
+                    <td>E-Wallet</td>
+                    <td>Rp. 1.192.999</td>
+                    <td><span class="status confirmed">Terkonfirmasi</span></td>
+                </tr>
+
+                <tr>
+                    <td>RS002</td>
+                    <td>Albert Flores</td>
+                    <td>08123456789</td>
+                    <td>Kartu Kredit</td>
+                    <td>Rp. 1.192.999</td>
+                    <td><span class="status paid">Dibayar</span></td>
+                </tr>
+
+                <tr>
+                    <td>RS003</td>
+                    <td>Cody Fisher</td>
+                    <td>08123456789</td>
+                    <td>Transfer Bank</td>
+                    <td>Rp. 1.192.999</td>
+                    <td><span class="status canceled">Dibatalkan</span></td>
+                </tr>
+
+                <tr>
+                    <td>RS004</td>
+                    <td>Ann</td>
+                    <td>08123456789</td>
+                    <td>E-Wallet</td>
+                    <td>Rp. 1.192.999</td>
+                    <td><span class="status pending">Menunggu</span></td>
+                </tr>
+
+                <tr>
+                    <td>RS005</td>
+                    <td>Robert Fox</td>
+                    <td>08123456789</td>
+                    <td>E-Wallet</td>
+                    <td>Rp. 1.192.999</td>
+                    <td><span class="status confirmed">Terkonfirmasi</span></td>
+                </tr>
+
+                <tr>
+                    <td>RS006</td>
+                    <td>Henry Arthur</td>
+                    <td>08123456789</td>
+                    <td>E-Wallet</td>
+                    <td>Rp. 1.192.999</td>
+                    <td><span class="status paid">Dibayar</span></td>
+                </tr>
+
+                <tr>
+                    <td>RS007</td>
+                    <td>Hawkins</td>
+                    <td>08123456789</td>
+                    <td>E-Wallet</td>
+                    <td>Rp. 1.192.999</td>
+                    <td><span class="status confirmed">Terkonfirmasi</span></td>
+                </tr>
+
+                <tr>
+                    <td>RS008</td>
+                    <td>Theresa</td>
+                    <td>08123456789</td>
+                    <td>E-Wallet</td>
+                    <td>Rp. 1.192.999</td>
+                    <td><span class="status canceled">Dibatalkan</span></td>
+                </tr>
+
+                <tr>
+                    <td>RS009</td>
+                    <td>Greensboro</td>
+                    <td>08123456789</td>
+                    <td>E-Wallet</td>
+                    <td>Rp. 1.192.999</td>
+                    <td><span class="status confirmed">Terkonfirmasi</span></td>
+                </tr>
+
+                <tr>
+                    <td>RS010</td>
+                    <td>Joshua Hong</td>
+                    <td>08123456789</td>
+                    <td>E-Wallet</td>
+                    <td>Rp. 1.192.999</td>
+                    <td><span class="status confirmed">Terkonfirmasi</span></td>
+                </tr>
+
+                <tr>
+                    <td>RS011</td>
+                    <td>Caspian</td>
+                    <td>08123456789</td>
+                    <td>E-Wallet</td>
+                    <td>Rp. 1.192.999</td>
+                    <td><span class="status confirmed">Terkonfirmasi</span></td>
+                </tr>
+
+                <tr>
+                    <td>RS012</td>
+                    <td>Malcolm Todd</td>
+                    <td>08123456789</td>
+                    <td>E-Wallet</td>
+                    <td>Rp. 1.192.999</td>
+                    <td><span class="status paid">Dibayar</span></td>
+                </tr>
+
+                <tr>
+                    <td>RS013</td>
+                    <td>George</td>
+                    <td>08123456789</td>
+                    <td>E-Wallet</td>
+                    <td>Rp. 1.192.999</td>
+                    <td><span class="status confirmed">Terkonfirmasi</span></td>
+                </tr>
+
+                <tr>
+                    <td>RS014</td>
+                    <td>Tom Felton</td>
+                    <td>08123456789</td>
+                    <td>E-Wallet</td>
+                    <td>Rp. 1.192.999</td>
+                    <td><span class="status paid">Dibayar</span></td>
+                </tr>
+
+                <tr>
+                    <td>RS015</td>
+                    <td>Harry Pooah</td>
+                    <td>08123456789</td>
+                    <td>E-Wallet</td>
+                    <td>Rp. 1.192.999</td>
+                    <td><span class="status pending">Menunggu</span></td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+
+</body>
+
+</html>

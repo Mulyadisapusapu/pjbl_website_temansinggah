@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Admin | Pengunjung</title>
+    <link rel="icon" href="img/logo.jpg">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: #fff;
+            color: #000;
+        }
+
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 240px;
+            height: 100vh;
+            background: #fff;
+            border-right: 1px solid #eee;
+            padding: 25px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            margin-bottom: 30px;
+            margin-left: 6px;
+        }
+
+        .logo img {
+            width: 35px;
+            object-fit: contain;
+        }
+
+        .logo .gambar-nama {
+            width: 140px;
+            width: auto;
+            margin-top: 0;
+        }
+
+        .menu {
+            list-style: none;
+            margin-top: 30px;
+        }
+
+        .menu li {
+            margin-bottom: 10px;
+        }
+
+        .menu a {
+            text-decoration: none;
+            color: #000;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 15px;
+            padding: 10px 15px;
+            border-radius: 8px;
+            transition: 0.25s;
+        }
+
+        .menu .active {
+            background-color: #e8e5e3;
+            font-weight: 500;
+        }
+
+        .menu a:hover {
+            background-color: #f4f4f4;
+        }
+
+        .content {
+            margin-left: 240px;
+            padding: 40px 50px;
+        }
+
+        .content h2 {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 25px;
+        }
+
+        .pengunjung-table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .pengunjung-table th,
+        .pengunjung-table td {
+            padding: 14px 18px;
+            border-bottom: 1px solid #f0f0f0;
+            font-size: 15px;
+            text-align: left;
+        }
+
+        .pengunjung-table th {
+            font-weight: 600;
+            background-color: #fafafa;
+        }
+
+        .profile-box {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .profile-box img {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="sidebar">
+        <div class="logo">
+            <img src="img/logo.jpg" alt="logo">
+            <img src="img/brand-name.svg" class="gambar-nama" alt="brand-name">
+        </div>
+
+        <ul class="menu">
+            <li><a href="dashboardAdmin.html"><img src="img/icon/dashboard.svg">Dashboard</a></li>
+            <li><a href="adminPenginapan.html"><img src="img/icon/penginapan.svg">Penginapan</a></li>
+            <li><a href="adminReservasi.html"><img src="img/icon/reservasi.svg">Reservasi</a></li>
+            <li><a class="active" href="#"><img src="img/icon/pengunjung.svg">Pengunjung</a></li>
+        </ul>
+    </div>
+
+    <div class="content">
+        <h2>Pengunjung</h2>
+
+        <table class="pengunjung-table">
+            <thead>
+                <tr>
+                    <th>Nama Pengunjung</th>
+                    <th>Kontak</th>
+                    <th>E-Mail</th>
+                    <th>Kata Sandi</th>
+                    <th>Lokasi</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>
+                        <div class="profile-box">
+                            <img src="img/sumi.jpeg">
+                            <span>Savannah Nguyen</span>
+                        </div>
+                    </td>
+                    <td>08123456789</td>
+                    <td>felicia.reid@gmail.com</td>
+                    <td>4682347rjk</td>
+                    <td>Jakarta, Indonesia</td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <div class="profile-box">
+                            <img src="img/sumi.jpeg">
+                            <span>Bessie Cooper</span>
+                        </div>
+                    </td>
+                    <td>08123456789</td>
+                    <td>dan.baker@gmail.com</td>
+                    <td>772123</td>
+                    <td>Paris, Prancis</td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <div class="profile-box">
+                            <img src="img/sumi.jpeg">
+                            <span>Jerome Bell</span>
+                        </div>
+                    </td>
+                    <td>08123456789</td>
+                    <td>ziarzayyan@gmail.com</td>
+                    <td>25252gg</td>
+                    <td>Mexico City, Mexico</td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <div class="profile-box">
+                            <img src="img/sumi.jpeg">
+                            <span>Ralph Edwards</span>
+                        </div>
+                    </td>
+                    <td>08123456789</td>
+                    <td>sarah.cruz@gmail.com</td>
+                    <td>1234567890</td>
+                    <td>Istanbul, Turki</td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <div class="profile-box">
+                            <img src="img/sumi.jpeg">
+                            <span>Jacob Jones</span>
+                        </div>
+                    </td>
+                    <td>08123456789</td>
+                    <td>giaflyhig@hotmail.com</td>
+                    <td>F70UbCj1d</td>
+                    <td>Kairo, Mesir</td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <div class="profile-box">
+                            <img src="img/sumi.jpeg">
+                            <span>Eleanor Pena</span>
+                        </div>
+                    </td>
+                    <td>08123456789</td>
+                    <td>seanosea@icloud.com</td>
+                    <td>y4nyu0</td>
+                    <td>Surabaya, Indonesia</td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <div class="profile-box">
+                            <img src="img/sumi.jpeg">
+                            <span>Iceland</span>
+                        </div>
+                    </td>
+                    <td>08123456789</td>
+                    <td>sinclairsin@hotmail.net</td>
+                    <td>YZypuC</td>
+                    <td>Roma, Italia</td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <div class="profile-box">
+                            <img src="img/sumi.jpeg">
+                            <span>Web Designer</span>
+                        </div>
+                    </td>
+                    <td>08123456789</td>
+                    <td>RSolomons@gmail.com</td>
+                    <td>58949baby</td>
+                    <td>Barcelona, Spanyol</td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <div class="profile-box">
+                            <img src="img/sumi.jpeg">
+                            <span>Marvin McKinney</span>
+                        </div>
+                    </td>
+                    <td>08123456789</td>
+                    <td>camenischs@yahoo.ca</td>
+                    <td>XiauH5u</td>
+                    <td>Madrid, Spanyol</td>
+                </tr>
+
+            </tbody>
+        </table>
+
+    </div>
+
+</body>
+
+</html>

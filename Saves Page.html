@@ -53,7 +53,7 @@
             <img src="/website_materials/icon_edit.svg" class="edit-icon" />Edit
           </button>
         </div>
-        <button class="share-button">
+        <button id="share-button" class="share-button">
           <div class="account-icon">O</div>
           <h1>+</h1>
         </button>
@@ -64,8 +64,8 @@
           <div class="card">
             <div class="card-pict">
               <img src="/website_materials/gambar_hero.svg" />
-              <button class="save-button">
-                <img src="/website_materials/icon_save.svg" />
+              <button class="save-on-button">
+                <img src="/website_materials/icon_save_fill.svg" />
               </button>
             </div>
             <div class="card-text">
@@ -81,8 +81,13 @@
                 </div>
               </div>
             </div>
+
             <div class="card-comment">
-              <div class="comment-input">Tambahkan Pesan</div>
+              <input
+                type="text"
+                class="comment-input"
+                placeholder="Tambahkan Pesan"
+              />
               <div class="comment-actions">
                 <button class="like-button">
                   <img
@@ -90,7 +95,7 @@
                     class="like-icon"
                   />
                 </button>
-                <div class="vertical-divider"></div>
+                <div class="action-divider"></div>
                 <button class="dislike-button">
                   <img
                     src="/website_materials/icon_dislike.svg"
@@ -104,8 +109,8 @@
           <div class="card">
             <div class="card-pict">
               <img src="/website_materials/gambar_hero.svg" />
-              <button class="save-button">
-                <img src="/website_materials/icon_save.svg" />
+              <button class="save-on-button">
+                <img src="/website_materials/icon_save_fill.svg" />
               </button>
             </div>
             <div class="card-text">
@@ -121,8 +126,13 @@
                 </div>
               </div>
             </div>
+
             <div class="card-comment">
-              <div class="comment-input">Tambahkan Pesan</div>
+              <input
+                type="text"
+                class="comment-input"
+                placeholder="Tambahkan Pesan"
+              />
               <div class="comment-actions">
                 <button class="like-button">
                   <img
@@ -130,7 +140,7 @@
                     class="like-icon"
                   />
                 </button>
-                <div class="vertical-divider"></div>
+                <div class="action-divider"></div>
                 <button class="dislike-button">
                   <img
                     src="/website_materials/icon_dislike.svg"
@@ -144,8 +154,8 @@
           <div class="card">
             <div class="card-pict">
               <img src="/website_materials/gambar_hero.svg" />
-              <button class="save-button">
-                <img src="/website_materials/icon_save.svg" />
+              <button class="save-on-button">
+                <img src="/website_materials/icon_save_fill.svg" />
               </button>
             </div>
             <div class="card-text">
@@ -161,8 +171,13 @@
                 </div>
               </div>
             </div>
+
             <div class="card-comment">
-              <div class="comment-input">Tambahkan Pesan</div>
+              <input
+                type="text"
+                class="comment-input"
+                placeholder="Tambahkan Pesan"
+              />
               <div class="comment-actions">
                 <button class="like-button">
                   <img
@@ -170,7 +185,7 @@
                     class="like-icon"
                   />
                 </button>
-                <div class="vertical-divider"></div>
+                <div class="action-divider"></div>
                 <button class="dislike-button">
                   <img
                     src="/website_materials/icon_dislike.svg"
@@ -186,8 +201,8 @@
           <div class="card">
             <div class="card-pict">
               <img src="/website_materials/gambar_hero.svg" />
-              <button class="save-button">
-                <img src="/website_materials/icon_save.svg" />
+              <button class="save-on-button">
+                <img src="/website_materials/icon_save_fill.svg" />
               </button>
             </div>
             <div class="card-text">
@@ -203,8 +218,13 @@
                 </div>
               </div>
             </div>
+
             <div class="card-comment">
-              <div class="comment-input">Tambahkan Pesan</div>
+              <input
+                type="text"
+                class="comment-input"
+                placeholder="Tambahkan Pesan"
+              />
               <div class="comment-actions">
                 <button class="like-button">
                   <img
@@ -212,7 +232,7 @@
                     class="like-icon"
                   />
                 </button>
-                <div class="vertical-divider"></div>
+                <div class="action-divider"></div>
                 <button class="dislike-button">
                   <img
                     src="/website_materials/icon_dislike.svg"
@@ -256,5 +276,72 @@
         <p><a href="#">Kebijakan Privasi</a> • <a href="#">S&K</a></p>
       </div>
     </footer>
+
+    <div id="sharePopup">
+      <div class="share-modal">
+        <div class="share-header">
+          <div class="share-title"><h3>Sekar Jogja Heritage</h3></div>
+          <button class="close-button">
+            <img src="/website_materials/icon_back.svg" />
+          </button>
+        </div>
+        <div class="share-profile">
+          <div class="profile-avatar">O</div>
+          <div class="profile-text">
+            <div class="profile-name">Om Gatot</div>
+            <div class="profile-role">Pemilik</div>
+          </div>
+        </div>
+        <hr class="share-divider" />
+        <div class="share-actions">
+          <div class="share-features">
+            <button class="share-friend-button">Bagikan ke Temanmu!</button>
+            <button class="copy-link-button">
+              <img src="/website_materials/icon_copy-link.svg" />Salin Link
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const openSharePopup = document.getElementById("share-button");
+      const closeSharePopup = document.querySelector(".close-button");
+      const sharePopup = document.getElementById("sharePopup");
+
+      function openPopup() {
+        sharePopup.classList.add("active");
+      }
+
+      function closePopup() {
+        sharePopup.classList.remove("active");
+      }
+
+      openSharePopup.addEventListener("click", openPopup);
+
+      closeSharePopup.addEventListener("click", closePopup);
+
+      window.addEventListener("click", (event) => {
+        if (event.target === sharePopup) {
+          closePopup();
+        }
+      });
+
+      const saveButton = document.querySelectorAll(".save-on-button");
+
+      saveButton.forEach((button) => {
+        button.addEventListener("click", () => {
+          const img = button.querySelector("img");
+
+          const currentSrc = img.getAttribute("src");
+
+          if (currentSrc.includes("icon_save_fill.svg")) {
+            img.setAttribute("src", "/website_materials/icon_save.svg");
+          } else {
+            img.setAttribute("src", "/website_materials/icon_save_fill.svg");
+          }
+        });
+      });
+    </script>
   </body>
 </html>

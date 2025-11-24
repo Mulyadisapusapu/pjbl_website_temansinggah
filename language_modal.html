@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>language currency pop up</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        color: #000000;
+        background-color: #f8f8f8;
+      }
+
+      .language-section {
+        max-width: 1200px;
+        margin: 30px auto;
+        padding: 30px 40px;
+        border-radius: 16px;
+        background-color: #fff;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+        font-family: "inter", sans-serif;
+      }
+
+      .close-button {
+        cursor: pointer;
+        padding: 5px;
+        width: 30px;
+        height: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: none;
+        background-color: transparent;
+        margin: 0 -8px 25px;
+        transition: all 0.2s;
+        border-radius: 50%;
+      }
+
+      .close-button img {
+        width: 100%;
+        height: 100%;
+      }
+
+      .close-button:hover {
+        background-color: #f5f5f5;
+      }
+
+      .language-header {
+        display: flex;
+        gap: 40px;
+        margin-bottom: 40px;
+        font-size: 15px;
+        font-weight: 500;
+        border-bottom: 1px solid #e0e0e0;
+        padding-bottom: 15px;
+      }
+
+      .language-header-selected {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+        cursor: pointer;
+        padding-bottom: 15px;
+        position: relative;
+        margin-bottom: -30px;
+        gap: 10px;
+        font-weight: 600;
+        font-size: 16px;
+      }
+
+      .language-header-underline {
+        border: none;
+        border-bottom: 2px solid #000;
+      }
+
+      .language-header-item {
+        cursor: pointer;
+        color: rgb(0, 0, 0, 0.5);
+        transition: color 0.2s;
+        font-weight: 600;
+        font-size: 16px;
+        text-decoration: none;
+      }
+
+      .language-header-item:hover {
+        color: #000;
+      }
+
+      .language-contents {
+        display: flex;
+        flex-direction: column;
+        gap: 36px;
+      }
+
+      .language-content {
+        display: flex;
+        flex-direction: column;
+        gap: 17px;
+      }
+
+      .language-content-title {
+        font-size: 20px;
+        font-weight: 600;
+        color: #000;
+      }
+
+      .language-list {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 12px;
+      }
+
+      .language-item-selected {
+        display: flex;
+        flex-direction: column;
+        cursor: pointer;
+        color: #000000;
+        padding: 13px 14px;
+        border-radius: 10px;
+        gap: 3px;
+        transition: all 0.2s;
+        border: 2px solid #000;
+        background-color: #fff;
+      }
+
+      .language-item-selected:hover {
+        background-color: #f5f5f5;
+      }
+
+      .language-item {
+        display: flex;
+        gap: 3px;
+        flex-direction: column;
+        cursor: pointer;
+        color: #000000;
+        padding: 13px 14px;
+        border-radius: 10px;
+        transition: all 0.2s;
+        border: none;
+        background-color: #fff;
+      }
+
+      .language-item:hover {
+        background-color: #f5f5f5;
+      }
+
+      .language-name {
+        font-weight: 600;
+        font-size: 15px;
+      }
+
+      .country-name {
+        font-size: 14px;
+        color: rgb(0, 0, 0, 0.5);
+        font-weight: 500;
+      }
+    </style>
+  </head>
+  <body>
+    <section class="language-section">
+      <button class="close-button">
+        <img src="/website_materials/icon_back.svg" />
+      </button>
+
+      <div class="language-header">
+        <div class="language-header-selected">
+          <p>Bahasa dan Wilayah</p>
+          <hr class="language-header-underline" />
+        </div>
+        <a href="/currency_modal.html" class="language-header-item"
+          >Mata Uang</a
+        >
+      </div>
+
+      <section class="language-contents">
+        <section class="language-content">
+          <span class="language-content-title"
+            >Bahasa dan Wilayah yang Disarankan</span
+          >
+          <div class="language-list">
+            <div class="language-item">
+              <p class="language-name">English</p>
+              <p class="country-name">United States</p>
+            </div>
+            <div class="language-item">
+              <p class="language-name">English</p>
+              <p class="country-name">United Kingdom</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="language-content">
+          <span class="language-content-title"
+            >Pilih Bahasa dan Wilayah Anda
+          </span>
+          <div class="language-list">
+            <div class="language-item-selected">
+              <p class="language-name">Bahasa Indonesia</p>
+              <p class="country-name">Indonesia</p>
+            </div>
+            <div class="language-item">
+              <p class="language-name">English</p>
+              <p class="country-name">United States</p>
+            </div>
+            <div class="language-item">
+              <p class="language-name">English</p>
+              <p class="country-name">United Kingdom</p>
+            </div>
+            <div class="language-item">
+              <p class="language-name">English</p>
+              <p class="country-name">Australia</p>
+            </div>
+            <div class="language-item">
+              <p class="language-name">中文 (简体)</p>
+              <p class="country-name">China</p>
+            </div>
+            <div class="language-item">
+              <p class="language-name">中文 (繁體)</p>
+              <p class="country-name">Taiwan</p>
+            </div>
+            <div class="language-item">
+              <p class="language-name">日本語</p>
+              <p class="country-name">Japan</p>
+            </div>
+            <div class="language-item">
+              <p class="language-name">한국어</p>
+              <p class="country-name">South Korea</p>
+            </div>
+            <div class="language-item">
+              <p class="language-name">ไทย</p>
+              <p class="country-name">Thailand</p>
+            </div>
+            <div class="language-item">
+              <p class="language-name">Deutsch</p>
+              <p class="country-name">Deutschland</p>
+            </div>
+            <div class="language-item">
+              <p class="language-name">Español</p>
+              <p class="country-name">España</p>
+            </div>
+            <div class="language-item">
+              <p class="language-name">Français</p>
+              <p class="country-name">France</p>
+            </div>
+            <div class="language-item">
+              <p class="language-name">Italiano</p>
+              <p class="country-name">Italia</p>
+            </div>
+            <div class="language-item">
+              <p class="language-name">Português</p>
+              <p class="country-name">Brasil</p>
+            </div>
+            <div class="language-item">
+              <p class="language-name">Русский</p>
+              <p class="country-name">Russia</p>
+            </div>
+            <div class="language-item">
+              <p class="language-name">العربية</p>
+              <p class="country-name">Saudi Arabia</p>
+            </div>
+          </div>
+        </section>
+      </section>
+    </section>
+  </body>
+</html>
