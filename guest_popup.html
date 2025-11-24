@@ -33,7 +33,7 @@
       }
 
       .guest-section {
-        max-width: 380px;
+        min-width: 343px;
         margin: 40px auto;
         padding: 30px 40px;
         border-radius: 16px;
@@ -84,8 +84,8 @@
 
       .min-button,
       .plus-button {
-        width: 36px;
-        height: 36px;
+        width: 32px;
+        height: 32px;
         border-radius: 50%;
         border: 1px solid rgba(0, 0, 0, 0.5);
         display: flex;
@@ -98,15 +98,22 @@
         color: rgba(0, 0, 0, 0.75);
         transition: 0.15s ease-in-out;
       }
+
+       .min-button{
+        padding-bottom:1px;
+       }
+
+            .plus-button { padding-top:1px;}
+
       .min-button:hover,
       .plus-button:hover {
         background-color: #f3f3f3;
       }
 
       .guest-total {
-        width: 26px; /* bikin angka selalu center */
+        width: 26px;
         text-align: center;
-        font-size: 16px;
+        font-size: 18px;
         font-weight: 600;
       }
     </style>
