@@ -20,17 +20,17 @@
 
       <ul>
         <li><a href="Home Page.html">Beranda</a></li>
-        <li><a href="About Page.html">Tentang Kami</a></li>
+        <li><a href="about.html">Tentang Kami</a></li>
         <li><a href="Favorite Page.html">Favorit</a></li>
         <li>
-          <a href="Language.html">
-            <img src="website_materials/icon_language.svg" />
+          <span>
+            <img src="website_materials/icon_globe.svg" />
             | IDR
-          </a>
+          </span>
         </li>
         <li>
           <a href="Profile Page.html"
-            ><img src="website_materials/icon_account.svg" alt="Logo Akun"
+            ><img src="website_materials/icon_user-circle.svg" alt="Logo Akun"
           /></a>
         </li>
       </ul>
@@ -336,7 +336,9 @@
             </section>
 
             <div class="reviews-actions">
-              <button id="see-more-button" class="see-more-button">Lihat Selengkapnya</button>
+              <button id="see-more-button" class="see-more-button">
+                Lihat Selengkapnya
+              </button>
               <div class="review-comment">
                 <input
                   type="text"
@@ -520,42 +522,42 @@
       saveButton.addEventListener("click", toggleSave);
 
       /*Calendar Popup*/
-      fetch("calendar_popup.html")
-        .then((res) => res.text())
-        .then((html) => {
-          document.getElementById("calendar-popup").innerHTML = html;
+   fetch("calendar_popup.html")
+  .then((res) => res.text())
+  .then((html) => {
+    document.getElementById("calendar-popup").innerHTML = html;
 
-          const calendarPopup = document.getElementById("calendarPopup");
+    const calendarPopup = document.getElementById("calendarPopup");
 
-          // INPUTS
-          const checkinInput = document.getElementById("checkin-input");
-          const checkoutInput = document.getElementById("checkout-input");
+    const checkinInput = document.getElementById("checkin-input");
+    const checkoutInput = document.getElementById("checkout-input");
 
-          // Open popup
-          function openPopup() {
-            calendarPopup.classList.add("active");
-          }
+    function openPopup(anchor) {
+      const rect = anchor.getBoundingClientRect();
 
-          // Close popup
-          function closePopup() {
-            calendarPopup.classList.remove("active");
-          }
+      calendarPopup.style.top = rect.bottom + window.scrollY + "px";
+      calendarPopup.style.left = rect.left + window.scrollX + "px";
 
-          // =====================
-          // EVENT LISTENER INPUT
-          // =====================
-          checkinInput.addEventListener("click", openPopup);
-          checkoutInput.addEventListener("click", openPopup);
+      calendarPopup.classList.add("active");
+    }
 
-          // Close when clicking background
-          calendarPopup.addEventListener("click", (event) => {
-            if (event.target === calendarPopup) {
-              closePopup();
-            }
-          });
-        });
+    checkinInput.addEventListener("click", () => openPopup(checkinInput));
+    checkoutInput.addEventListener("click", () => openPopup(checkoutInput));
 
-        fetch("guest_popup.html")
+    window.addEventListener("click", (e) => {
+      if (
+        !calendarPopup.contains(e.target) &&
+        e.target !== checkinInput &&
+        e.target !== checkoutInput
+      ) {
+        calendarPopup.classList.remove("active");
+      }
+    });
+  });
+
+
+      /*Guest Popup*/
+      fetch("guest_popup.html")
         .then((res) => res.text())
         .then((html) => {
           document.getElementById("guest-popup").innerHTML = html;

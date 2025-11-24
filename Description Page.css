@@ -69,13 +69,32 @@ nav ul li {
 
 nav ul li a {
   color: var(--nav-color);
-  margin-right: 50px;
-  margin-left: 40px;
+  margin-left: 60px;
   font-size: 14px;
   align-items: center;
   display: inline-flex;
   vertical-align: middle;
   text-decoration: none;
+}
+
+nav ul li span {
+  color: var(--nav-color);
+  margin-left: 60px;
+  font-size: 14px;
+  align-items: center;
+  display: inline-flex;
+  vertical-align: middle;
+  text-decoration: none;
+}
+
+nav ul li span img {
+  width: 20px;
+  height: 20px;margin-right:3px;
+}
+
+nav ul li a img {
+    width: 26px;
+  height: 26px;margin-right:30px;
 }
 
 .detail-section {
