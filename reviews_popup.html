@@ -25,7 +25,7 @@
         --box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
         --nav-box-shadow: 0 2px 10px #8d8a8a;
         --border: 1px solid #e0e0e0;
-        --border-hover: #999;
+        --border-hover: 1px solid #999;
       }
 
       * {
@@ -226,7 +226,7 @@
 
       .rating-option {
         padding: 10px 18px;
-        border: 2px solid #e0e0e0;
+        border: var(--border);
         align-items: center;
         justify-content: center;
         border-radius: 50px;
@@ -237,7 +237,7 @@
       }
 
       .rating-option:hover {
-        border-color: var(--border);
+        border: var(--border-hover);
         background: #fff9f5;
       }
 
