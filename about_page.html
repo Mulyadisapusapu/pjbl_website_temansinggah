@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>About | Teman Singgah</title>
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "inter";
+        }
+
+        nav {
+            display: flex;
+            background-color: #fff;
+            align-items: center;
+            justify-content: space-between;
+            height: 60px;
+            width: 100%;
+            top: 0;
+            position: fixed;
+            z-index: 2;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.10);
+        }
+
+        nav ul li {
+            list-style: none;
+            display: inline-block;
+        }
+
+         nav ul li a {
+            color: #8d330c;
+            text-decoration: none;
+            margin-right: 20px;
+            margin-left: 20px;
+            font-size: 14px;
+            align-items: center;
+            display: inline-flex;
+            vertical-align: middle;
+        }
+
+        nav ul li a:hover {
+            transform: translateY(-3px);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-left: 40px;
+            position: relative;
+        }
+
+        .logo .gambar-logo {
+            width: 40px;
+            z-index: 3;
+        }
+
+        .logo .gambar-nama {
+            width: 155px;
+            z-index: 2;
+            margin: 0;
+        }
+
+        .hamburger {
+            display: none;
+            font-size: 28px;
+            cursor: pointer;
+            margin-right: 20px;
+        }
+
+        .hero {
+            margin: 90px auto 5px auto;
+            width: 92%;
+            background: linear-gradient(to bottom, rgba(0,0,0,.55), rgba(0,0,0,.65)),
+                url("https://i.pinimg.com/1200x/81/77/93/81779307afc9275e1abd2c5e2123db11.jpg") no-repeat;
+            background-size: cover;
+            background-position: center;
+            padding: 170px 110px;
+            color: #fff;
+            border-radius: 34px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .hero h1 {
+            font-size: 56px;
+            font-weight: 700;
+        }
+
+        .hero p {
+            margin-top: 18px;
+            font-size: 22px;
+            max-width: 650px;
+            line-height: 1.6;
+            opacity: .95;
+        }
+
+        .section {
+            padding: 50px 100px;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1.4fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-grid img {
+            width: 100%;
+            border-radius: 16px;
+        }
+
+        .about-title {
+            font-size: 54px;
+            font-weight: 700;
+            color: #8d330c;
+            margin-bottom: 20px;
+        }
+
+        .about-desc {
+            text-align: justify;
+            font-size: 18px;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .team-section h2 {
+            font-size: 36px;
+            color: #8d330c;
+            text-align: center;
+            font-weight: 700;
+            margin-bottom: 60px;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .team-card {
+            text-align: center;
+        }
+
+        .team-card img {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        .team-card h4 {
+            margin-top: 12px;
+            font-size: 17px;
+            font-weight: 600;
+        }
+
+        .team-card p {
+            margin-top: 4px;
+            font-size: 14px;
+            color: #555;
+        }
+
+        .cta {
+            background: #8d330c;
+            color: #fff;
+            padding: 80px 120px;
+            margin-top: 60px;
+            text-align: center;
+            border-radius: 32px 32px 0 0;
+        }
+
+        .cta h2 {
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .cta p {
+            font-size: 18px;
+            margin-bottom: 32px;
+            opacity: .9;
+        }
+
+        .cta button {
+            padding: 16px 32px;
+            border-radius: 30px;
+            border: none;
+            background: #fff;
+            color: #8d330c;
+            font-size: 17px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.25s;
+        }
+
+        .cta a {
+            color: #8d330c;
+            text-decoration: none;
+        }
+
+        .cta button:hover {
+            transform: translateY(-4px);
+        }
+
+        @media (max-width: 920px) {
+            .hamburger {
+                display: block;
+            }
+
+            nav ul {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 60px;
+                right: 0;
+                background: #fff;
+                width: 100%;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+                z-index: 5;
+            }
+
+            nav ul.show {
+                display: flex;
+            }
+
+            nav ul li {
+                display: block;
+                margin: 15px 0;
+                text-align: center;
+            }
+
+            nav ul li a {
+                margin: 0;
+                font-size: 16px;
+            }
+        }
+
+        @media (max-width: 920px) {
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+        }
+
+        @media (max-width: 920px) {
+            .team-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 920px) {
+            .hero {
+                padding: 120px 40px;
+            }
+
+            .hero h1 {
+                font-size: 40px;
+            }
+
+            .hero p {
+                font-size: 18px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .hero {
+                padding: 100px 20px;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .section {
+                padding: 30px 20px;
+            }
+        }
+
+        @media (max-width: 920px) {
+            .cta {
+                padding: 60px 40px;
+            }
+
+            .cta h2 {
+                font-size: 32px;
+            }
+
+            .cta p {
+                font-size: 16px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .cta {
+                padding: 50px 20px;
+            }
+
+            .cta h2 {
+                font-size: 28px;
+            }
+
+            .cta p {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <img class="gambar-logo" src="img/logo.jpg" alt="Logo TemanSinggah" />
+                <img class="gambar-nama" src="img/brand-name.svg" alt="Nama TemanSinggah" />
+            </div>
+
+            <div class="hamburger" onclick="toggleMenu()">☰</div>
+
+            <ul>
+                <li><a href="homePageUdahLogin.html">Beranda</a></li>
+                <li><a href="aboutPage.html">Tentang Kami</a></li>
+                <li><a href="favoritPage.html">Favorit</a></li>
+                <li><a href="language.html"><img src="img/language.svg" alt="Logo Bahasa" /> | IDR</a></li>
+                <li><a href="profile.html"><img src="img/profile.svg" alt="Logo Akun" /></a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="hero">
+        <h1>Tentang Teman Singgah</h1>
+        <p>Temukan ruang singgah yang tenang, nyaman, dan terjangkau. Kami selalu ada untuk menemani setiap langkah perjalananmu.</p>
+    </div>
+
+    <div class="section">
+        <div class="about-grid">
+            <div>
+                <h2 class="about-title">Siapa Kami?</h2>
+                <p class="about-desc">
+                    Teman Singgah merupakan platform yang menyediakan berbagai pilihan tempat menginap, mulai dari villa, hotel, resort, homestay, hingga guesthouse. Setiap penginapan kami tampilkan dengan informasi yang lengkap, mulai dari fasilitas, foto, harga, hingga ulasan, agar pengguna dapat memilih tempat yang paling sesuai dengan kebutuhan mereka.
+                    <br><br>
+                    Kami berkomitmen untuk menghadirkan pengalaman booking yang mudah, cepat, dan nyaman. Teman Singgah akan membantu pengguna menemukan penginapan secara lebih efisien.
+                </p>
+            </div>
+            <img src="img/rumah.jpg" alt="Tentang Teman Singgah" />
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="team-section">
+            <h2>Tim Teman Singgah</h2>
+            <div class="team-grid">
+                <div class="team-card">
+                    <img src="img/sumi.jpeg" />
+                    <h4>Keysha</h4>
+                    <p>UI/UX Designer.</p>
+                </div>
+                <div class="team-card">
+                    <img src="img/sumi.jpeg" />
+                    <h4>Daqiqul</h4>
+                    <p>UI/UX Designer.</p>
+                </div>
+                <div class="team-card">
+                    <img src="img/sumi.jpeg" />
+                    <h4>Pemilik penginapan</h4>
+                    <p>Terima kasih kepada pengelola penginapan lokal yang melestarikan budaya Indonesia.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="cta">
+        <h2>Siap Singgah Bersama Kami?</h2>
+        <p>Temukan penginapan terbaikmu dengan cepat dan mudah.</p>
+        <button><a href="homePageUdahLogin.html">Booking sekarang</a></button>
+    </div>
+
+    <script>
+        function toggleMenu() {
+            document.querySelector('nav ul').classList.toggle('show');
+        }
+    </script>
+</body>
+
+</html>

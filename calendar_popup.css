@@ -1,150 +1,231 @@
-  * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-      body {
-        color: #000000;
-        font-family: "Inter", sans-serif;
-      }
+body {
+  color: #000000;
+  font-family: "Inter", sans-serif;
+  padding: 40px;
+  background: #f5f5f5;
+}
 
-      /* POPUP */
-      #calendarPopup {
-        position: absolute;
-        z-index: 9999;
-      }
+#calendarPopup {
+  max-width: 1000px;
+}
 
-      /* PANEL */
-      .calendar-section {
-        width: 900px;
-        padding: 35px 60px;
-        border-radius: 16px;
-        background-color: #fff;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-      }
+#calendarPopup.active {
+  display: block;
+}
 
-      /* HEADER KHUSUS 2 BULAN */
-      .calendar-header-global {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 25px;
-        position: relative;
-      }
+.calendar-section {
+  width: 100%;
+  padding: 35px 60px;
+  border-radius: 16px;
+  background-color: #fff;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
 
-      .month-arrow-global {
-        border: none;
-        background: none;
-        font-size: 22px;
-        cursor: pointer;
-        padding: 6px 14px;
-        border-radius: 8px;
-        transition: 0.2s;
-        font-weight: 600;
-      }
+/* INFO HEADER */
+.booking-info-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  gap: 20px;
+}
 
-      .month-arrow-global:hover {
-        background-color: #f5f5f5;
-      }
+.nights-info {
+  flex: 1;
+}
 
-      .month-arrow-disabled {
-        opacity: 0.3;
-        cursor: not-allowed !important;
-      }
+.nights-count {
+  font-size: 26px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
 
-      .calendar-header-center {
-        display: flex;
-        gap: 40px;
-        flex: 1;
-        justify-content: center;
-      }
+.nights-date-range {
+  font-size: 14px;
+  color: #666;
+}
 
-      .header-month-title {
-        font-size: 20px;
-        font-weight: 600;
-        text-align: center;
-        flex: 1;
-      }
+.date-inputs {
+  display: flex;
+  gap: 12px;
+  flex: 1;
+  justify-content: flex-end;
+}
 
-      .calendar-list {
-        display: flex;
-        justify-content: space-between;
-        gap: 60px;
-      }
+.date-input-box {
+  border: 2px solid #222;
+  border-radius: 12px;
+  padding: 12px 20px;
+  min-width: 160px;
+  position: relative;
+}
 
-      .calendar-content {
-        width: 100%;
-      }
+.date-input-label {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
 
-      .calendar-month {
-        flex: 1;
-        text-align: center;
-        font-size: 18px;
-        font-weight: 600;
-        margin-bottom: 12px;
-      }
+.date-input-value {
+  font-size: 16px;
+  font-weight: 500;
+}
 
-      /* GRID */
-      .calendar-grid {
-        display: grid;
-        grid-template-columns: repeat(7, 1fr);
-        row-gap: 14px;
-        text-align: center;
-      }
+.clear-date-btn {
+  position: absolute;
+  top: 50%;
+  right: 12px;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  padding: 4px;
+  opacity: 0.6;
+}
 
-      .calendar-day {
-        font-weight: 600;
-      }
+.clear-date-btn img {
+  width: 18px;
+  height: 18px;
+  margin-top: 6px;
+}
 
-      .calendar-date {
-        cursor: pointer;
-        padding: 8px 0;
-        border-radius: 6px;
-        transition: 0.2s;
-      }
+.clear-date-btn:hover {
+  opacity: 1;
+}
 
-      .calendar-date:hover {
-        background-color: #f5f5f5;
-      }
+/* CALENDAR HEADER */
+.calendar-header-global {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+  position: relative;
+}
 
-      .empty {
-        visibility: hidden;
-      }
+.month-arrow-global {
+  border: none;
+  background: none;
+  font-size: 22px;
+  cursor: pointer;
+  padding: 6px 14px;
+  border-radius: 8px;
+  transition: 0.2s;
+  font-weight: 600;
+}
 
-      /* TANGGAL NON-AKTIF */
-      .date-disabled {
-        opacity: 0.25;
-        cursor: not-allowed !important;
-      }
+.month-arrow-global:hover {
+  background-color: #f5f5f5;
+}
 
-      /* FOOTER */
-      .calendar-button {
-        display: flex;
-        justify-content: space-between;
-        margin-top: 32px;
-      }
+.month-arrow-disabled {
+  opacity: 0.3;
+  cursor: not-allowed !important;
+}
 
-      .reset-button {
-        font-size: 14px;
-        font-weight: 600;
-        cursor: pointer;
-      }
+.calendar-header-center {
+  display: flex;
+  gap: 40px;
+  flex: 1;
+  justify-content: center;
+}
 
-      .reset-button:hover {
-        text-decoration: underline;
-      }
+.header-month-title {
+  font-size: 20px;
+  font-weight: 600;
+  text-align: center;
+  flex: 1;
+}
 
-      .confirm-button {
-        background-color: #8d330c;
-        color: #fff;
-        border: none;
-        border-radius: 20px;
-        padding: 10px 24px;
-        font-size: 15px;
-        cursor: pointer;
-      }
+.calendar-list {
+  display: flex;
+  justify-content: space-between;
+  gap: 60px;
+}
 
-      .confirm-button:hover {
-        background-color: #7c2e0c;
-      }
+.calendar-content {
+  width: 100%;
+}
+
+/* GRID */
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  row-gap: 14px;
+  text-align: center;
+}
+
+.calendar-day {
+  font-weight: 600;
+  font-size: 14px;
+  color: #666;
+}
+
+.calendar-date {
+  cursor: pointer;
+  padding: 8px 0;
+  border-radius: 6px;
+  transition: 0.2s;
+}
+
+.calendar-date:hover:not(.date-disabled):not(.active) {
+  background-color: #f5f5f5;
+}
+
+.empty {
+  visibility: hidden;
+}
+
+.date-disabled {
+  opacity: 0.25;
+  cursor: not-allowed !important;
+}
+
+/* TANGGAL AKTIF */
+.calendar-date.active {
+  background-color: #222;
+  color: #fff;
+  font-weight: 600;
+}
+
+.calendar-date.in-range {
+  background-color: #f0f0f0;
+}
+
+/* FOOTER */
+.calendar-button {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 32px;
+}
+
+.reset-button {
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.reset-button:hover {
+  text-decoration: underline;
+}
+
+.confirm-button {
+  background-color: #8d330c;
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  padding: 10px 24px;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.confirm-button:hover {
+  background-color: #7c2e0c;
+}

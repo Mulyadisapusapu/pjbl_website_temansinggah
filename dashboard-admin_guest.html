@@ -6,9 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard Admin | Pengunjung</title>
     <link rel="icon" href="img/logo.jpg">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+        integrity="YOUR_INTEGRITY_HASH" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
+         @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+         
         * {
             margin: 0;
             padding: 0;
@@ -78,7 +81,7 @@
         }
 
         .menu a:hover {
-            background-color: #f4f4f4;
+            background-color: #f1f1f1;
         }
 
         .content {
@@ -90,6 +93,47 @@
             font-size: 20px;
             font-weight: 700;
             margin-bottom: 25px;
+        }
+
+        .search-bar {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .search-bar input[type="text"] {
+            padding: 10px;
+            border: 1px solid #eee;
+            border-radius: 20px;
+            width: 500px;
+            padding-left: 15px;
+        }
+
+        .search-bar i.fas.fa-search {
+            position: absolute;
+            left: 9px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: black;
+        }
+
+        .search-bar button {
+            position: absolute;
+            left: 465px;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: #f4f4f4;
+            color: #fff;
+            border: none;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0;
         }
 
         .pengunjung-table {
@@ -148,13 +192,18 @@
     <div class="content">
         <h2>Pengunjung</h2>
 
+        <div class="search-bar">
+            <input type="text" placeholder="Telusuri pengunjung">
+            <button><i class="fas fa-search"></i></button>
+        </div>
+
         <table class="pengunjung-table">
             <thead>
                 <tr>
                     <th>Nama Pengunjung</th>
-                    <th>Kontak</th>
+                    <th>ID Pengunjung</th>
                     <th>E-Mail</th>
-                    <th>Kata Sandi</th>
+                    <th>Kontak</th>
                     <th>Lokasi</th>
                 </tr>
             </thead>
@@ -167,9 +216,9 @@
                             <span>Savannah Nguyen</span>
                         </div>
                     </td>
-                    <td>08123456789</td>
+                    <td>USR-3A7F</td>
                     <td>felicia.reid@gmail.com</td>
-                    <td>4682347rjk</td>
+                    <td>0812-3456-7821</td>
                     <td>Jakarta, Indonesia</td>
                 </tr>
 
@@ -180,9 +229,9 @@
                             <span>Bessie Cooper</span>
                         </div>
                     </td>
-                    <td>08123456789</td>
+                    <td>USR-9K2L</td>
                     <td>dan.baker@gmail.com</td>
-                    <td>772123</td>
+                    <td>0813-9987-4402</td>
                     <td>Paris, Prancis</td>
                 </tr>
 
@@ -193,9 +242,9 @@
                             <span>Jerome Bell</span>
                         </div>
                     </td>
-                    <td>08123456789</td>
+                    <td>USR-5Q8M</td>
                     <td>ziarzayyan@gmail.com</td>
-                    <td>25252gg</td>
+                    <td>0821-7766-9088</td>
                     <td>Mexico City, Mexico</td>
                 </tr>
 
@@ -206,9 +255,9 @@
                             <span>Ralph Edwards</span>
                         </div>
                     </td>
-                    <td>08123456789</td>
+                    <td>USR-7Z1B</td>
                     <td>sarah.cruz@gmail.com</td>
-                    <td>1234567890</td>
+                    <td>0852-4411-2366</td>
                     <td>Istanbul, Turki</td>
                 </tr>
 
@@ -219,9 +268,9 @@
                             <span>Jacob Jones</span>
                         </div>
                     </td>
-                    <td>08123456789</td>
+                    <td>USR-4D9X</td>
                     <td>giaflyhig@hotmail.com</td>
-                    <td>F70UbCj1d</td>
+                    <td>0878-3344-9901</td>
                     <td>Kairo, Mesir</td>
                 </tr>
 
@@ -232,9 +281,9 @@
                             <span>Eleanor Pena</span>
                         </div>
                     </td>
-                    <td>08123456789</td>
+                    <td>USR-2H6Q</td>
                     <td>seanosea@icloud.com</td>
-                    <td>y4nyu0</td>
+                    <td>0819-5522-7644</td>
                     <td>Surabaya, Indonesia</td>
                 </tr>
 
@@ -245,9 +294,9 @@
                             <span>Iceland</span>
                         </div>
                     </td>
-                    <td>08123456789</td>
+                    <td>USR-8W3P</td>
                     <td>sinclairsin@hotmail.net</td>
-                    <td>YZypuC</td>
+                    <td>0896-7700-5523</td>
                     <td>Roma, Italia</td>
                 </tr>
 
@@ -258,9 +307,9 @@
                             <span>Web Designer</span>
                         </div>
                     </td>
-                    <td>08123456789</td>
+                    <td>USR-1T5C</td>
                     <td>RSolomons@gmail.com</td>
-                    <td>58949baby</td>
+                    <td>0823-9901-7812</td>
                     <td>Barcelona, Spanyol</td>
                 </tr>
 
@@ -271,9 +320,9 @@
                             <span>Marvin McKinney</span>
                         </div>
                     </td>
-                    <td>08123456789</td>
+                    <td>USR-6R4V</td>
                     <td>camenischs@yahoo.ca</td>
-                    <td>XiauH5u</td>
+                    <td>0853-2200-1449</td>
                     <td>Madrid, Spanyol</td>
                 </tr>
 

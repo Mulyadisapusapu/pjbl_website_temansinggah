@@ -13,7 +13,40 @@
   <body>
     <div id="calendarPopup">
       <section class="calendar-section">
-        <!-- HEADER GLOBAL -->
+        <div class="booking-info-header">
+          <div class="nights-info">
+            <div class="nights-count" id="nightsCount">0 nights</div>
+            <div class="nights-date-range" id="dateRange">Pilih tanggal</div>
+          </div>
+          <div class="date-inputs">
+            <div class="date-input-box">
+              <div class="date-input-label">CHECK-IN</div>
+              <div class="date-input-value" id="checkInDisplay">--/--/----</div>
+              <button
+                class="clear-date-btn"
+                id="clearCheckIn"
+                style="display: none"
+              >
+                <img src="/website_materials/icon_back-x.svg">
+              </button>
+            </div>
+            <div class="date-input-box">
+              <div class="date-input-label">CHECKOUT</div>
+              <div class="date-input-value" id="checkOutDisplay">
+                --/--/----
+              </div>
+              <button
+                class="clear-date-btn"
+                id="clearCheckOut"
+                style="display: none"
+              >
+                <img src="/website_materials/icon_back-x.svg">
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- CALENDAR HEADER -->
         <div class="calendar-header-global">
           <button id="prevGlobal" class="month-arrow-global">&lt;</button>
           <div class="calendar-header-center">
@@ -26,7 +59,7 @@
         <div id="calendar-container" class="calendar-list"></div>
 
         <div class="calendar-button">
-          <div class="reset-button">Reset Semua Pilihan</div>
+          <div class="reset-button" id="resetButton">Reset Semua Pilihan</div>
           <button class="confirm-button">Konfirmasi</button>
         </div>
       </section>

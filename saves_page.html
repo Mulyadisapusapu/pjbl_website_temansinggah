@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Saves Page</title>
-    <link rel="stylesheet" href="Saves Page.css" />
+    <link rel="stylesheet" href="saves_page.css" />
     <link rel="icon" href="website_materials/logo_temansinggah.svg" />
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
@@ -304,44 +304,8 @@
       </div>
     </div>
 
-    <script>
-      const openSharePopup = document.getElementById("share-button");
-      const closeSharePopup = document.querySelector(".close-button");
-      const sharePopup = document.getElementById("sharePopup");
-
-      function openPopup() {
-        sharePopup.classList.add("active");
-      }
-
-      function closePopup() {
-        sharePopup.classList.remove("active");
-      }
-
-      openSharePopup.addEventListener("click", openPopup);
-
-      closeSharePopup.addEventListener("click", closePopup);
-
-      window.addEventListener("click", (event) => {
-        if (event.target === sharePopup) {
-          closePopup();
-        }
-      });
-
-      const saveButton = document.querySelectorAll(".save-on-button");
-
-      saveButton.forEach((button) => {
-        button.addEventListener("click", () => {
-          const img = button.querySelector("img");
-
-          const currentSrc = img.getAttribute("src");
-
-          if (currentSrc.includes("icon_save_fill.svg")) {
-            img.setAttribute("src", "/website_materials/icon_save.svg");
-          } else {
-            img.setAttribute("src", "/website_materials/icon_save_fill.svg");
-          }
-        });
-      });
+    <script src="saves_page.js">
+     
     </script>
   </body>
 </html>
