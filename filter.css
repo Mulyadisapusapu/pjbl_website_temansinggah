@@ -5,107 +5,243 @@
       }
 
       body {
-        color: #000000;
+        color: #2d2d2d;
+        background-color: #f7f7f7;
+        font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
       }
 
       .filter-section {
         max-width: 900px;
         margin: 40px auto;
-        padding: 35px 60px;
-        border-radius: 16px;
+        padding: 0;
+        border-radius: 12px;
         background-color: #fff;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-        font-family: "inter", sans-serif;
+        box-shadow: 0 2px 16px rgba(0, 0, 0, 0.12);
       }
 
       .filter-header {
         font-weight: 600;
-        font-size: 16px;
-        margin-bottom: 20px;
+        font-size: 20px;
+        padding: 24px 32px;
+        border-bottom: 1px solid #e0e0e0;
+      }
+
+      .filter-content {
+        padding: 24px 32px 32px;
       }
 
       .filter-list {
         display: flex;
         flex-direction: column;
-        gap: 20px;
+        gap: 32px;
       }
 
       .filter-group {
         display: flex;
         flex-direction: column;
-        gap: 10px;
+        gap: 16px;
       }
 
       .filter-label {
         font-weight: 600;
         font-size: 16px;
+        color: #1a1a1a;
       }
 
+      /* Price Range Styles - Custom Slider */
+      .price-range-container {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      .price-display {
+        font-size: 14px;
+        color: #5a5a5a;
+        font-weight: 500;
+      }
+
+      .price-slider-wrapper {
+        position: relative;
+        height: 6px;
+        background: #e0e0e0;
+        border-radius: 3px;
+        margin: 20px 0;
+        cursor: pointer;
+      }
+
+      .price-slider-track {
+        position: absolute;
+        height: 100%;
+        background: #8d330c;
+        border-radius: 3px;
+        pointer-events: none;
+      }
+
+      .price-slider-handle {
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        background: #fff;
+        border: 3px solid #8d330c;
+        border-radius: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        cursor: grab;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+        z-index: 2;
+      }
+
+      .price-slider-handle:active {
+        cursor: grabbing;
+        box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
+      }
+
+      .price-slider-handle.dragging {
+        cursor: grabbing;
+      }
+
+      /* Filter Options Grid */
       .filter-options {
-        display: grid;
-        grid-template-columns: repeat(5, 1fr);
-        column-gap: 40px;
-        row-gap: 20px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
       }
 
       .filter-option {
-        padding: 8px;
-        border: 1px solid;
+        padding: 10px 20px;
+        border: 1px solid #d4d4d4;
+        background: #fff;
         align-items: center;
         justify-content: center;
         text-align: center;
-        border-radius: 30px;
+        border-radius: 24px;
         cursor: pointer;
+        font-size: 14px;
+        font-weight: 500;
+        transition: all 0.2s ease;
+        color: #2d2d2d;
       }
 
+      .filter-option:hover {
+        border-color: #666;
+        background: #fff;
+      }
+
+      .filter-option.active {
+        background: #8d330c;
+        border-color: #8d330c;
+        color: #fff;
+      }
+
+      /* Facilities Checkboxes */
+      .facilities-list {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+      }
+
+      .facility-item {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        cursor: pointer;
+        padding: 4px 0;
+      }
+
+      .facility-item input[type="checkbox"] {
+        width: 18px;
+        height: 18px;
+        cursor: pointer;
+        border: 2px solid #d4d4d4;
+        border-radius: 4px;
+        accent-color: #8d330c;
+        transform: scale(0.9);
+      }
+
+      .facility-item label {
+        cursor: pointer;
+        font-size: 15px;
+        color: #2d2d2d;
+        user-select: none;
+      }
+
+      /* Rating Options */
       .rating-options {
         display: flex;
-        gap: 50px;
+        gap: 12px;
+        flex-wrap: wrap;
       }
 
       .rating-option {
-        padding: 8px 15px;
-        border: 1px solid;
+        padding: 10px 18px;
+        border: 1px solid #d4d4d4;
+        background: #fff;
         align-items: center;
         justify-content: center;
-        border-radius: 30px;
+        border-radius: 24px;
         display: flex;
-        gap: 5px;
+        gap: 4px;
         cursor: pointer;
+        transition: all 0.2s ease;
       }
 
-      .share-divider {
-        margin: 0 20px;
+      .rating-option:hover {
+        border-color: #666;
+        background: #fff;
+      }
+
+      .rating-option.active {
+        background: #8d330c;
+        border-color: #8d330c;
+      }
+
+      .rating-icon {
+        width: 16px;
+        height: 16px;
+      }
+
+      .filter-divider {
+        margin: 0;
         border: none;
-        border-top: 1px solid #e0e0e0;
+        border-top: 1px solid #e8e8e8;
       }
 
-      .filter-button {
+      /* Footer Buttons */
+      .filter-footer {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        margin-top: 30px;
+        padding: 20px 32px;
+        border-top: 1px solid #e0e0e0;
+        background: #fafafa;
+        border-radius: 0 0 12px 12px;
       }
 
       .reset-button {
-        color: #000000;
-        font-size: 14px;
+        color: #2d2d2d;
+        font-size: 15px;
         font-weight: 600;
         cursor: pointer;
         transition: 0.2s;
+        text-decoration: underline;
+        background: none;
+        border: none;
+        padding: 8px 12px;
       }
 
       .reset-button:hover {
-        text-decoration: underline;
+        color: #000;
       }
 
       .confirm-button {
         background-color: #8d330c;
         color: #fff;
         border: none;
-        border-radius: 20px;
-        padding: 10px 24px;
+        border-radius: 24px;
+        padding: 12px 32px;
         font-size: 15px;
+        font-weight: 600;
         cursor: pointer;
         transition: 0.2s;
       }
