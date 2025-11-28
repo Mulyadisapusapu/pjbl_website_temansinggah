@@ -84,7 +84,7 @@ nav ul li a img {
 
 .hero-section {
   position: relative;
-  height: 50vh;
+  height: 80vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -92,6 +92,8 @@ nav ul li a img {
   color: #fff;
   border-radius: 0 0px 15px 15px;
   overflow: hidden;
+  margin-top: 60px;
+  object-fit: cover;
 }
 
 .hero-section .hero-bg {
@@ -112,11 +114,11 @@ nav ul li a img {
 }
 
 .hero-text b {
-  font-size: 46px;
+  font-size: 68px;
 }
 
 .hero-text p {
-  font-size: 20px;
+  font-size: 28px;
 }
 
 .search-bar {

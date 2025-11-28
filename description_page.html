@@ -119,6 +119,7 @@
       .detail-section {
         max-width: 1400px;
         margin: 25px auto 0;
+        margin-top:90px;
       }
 
       .back-button {
@@ -909,7 +910,7 @@
         position: absolute;
         top: 100%;
         right: 0;
-        margin-top: 8px; /* Jarak dari kotak check-in/checkout */
+        margin-top: 8px;
         z-index: 100;
         width: 750px;
       }
@@ -921,10 +922,9 @@
       .cal-popup-section {
         width: 100%;
         padding: 35px 60px;
-        border-radius: 16px; /* Border radius penuh */
+        border-radius: 16px;
         background-color: #fff;
         box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-        /* Border dihilangkan */
       }
 
       /* Calendar Info Header */
@@ -1337,6 +1337,113 @@
       .footer-bottom a:hover {
         text-decoration: underline;
       }
+
+      /* ==================== MODAL POPUP STYLES ==================== */
+      .modal-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 1000;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .modal-overlay.active {
+        display: flex;
+      }
+
+      .modal-content {
+        background: white;
+        border-radius: 16px;
+        max-width: 500px;
+        width: 90%;
+        max-height: 80vh;
+        overflow-y: auto;
+        position: relative;
+      }
+
+      .modal-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 25px;
+        border-bottom: var(--border);
+      }
+
+      .modal-header h3 {
+        font-size: 18px;
+        font-weight: 600;
+      }
+
+      .modal-close-btn {
+        background: none;
+        border: none;
+        font-size: 24px;
+        cursor: pointer;
+        padding: 5px;
+        line-height: 1;
+        color: #666;
+      }
+
+      .modal-close-btn:hover {
+        color: #000;
+      }
+
+      .modal-body {
+        padding: 25px;
+      }
+
+      /* Share Modal Specific */
+      .share-options {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 15px;
+      }
+
+      .share-option {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+        padding: 15px;
+        border-radius: 12px;
+        cursor: pointer;
+        transition: background 0.2s;
+      }
+
+      .share-option:hover {
+        background: var(--second-bg-color);
+      }
+
+      .share-option-icon {
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 20px;
+      }
+
+      .share-option-label {
+        font-size: 12px;
+        color: var(--dark-text-color);
+      }
+
+      /* Reviews Modal Specific */
+      .reviews-modal-content {
+        max-width: 700px;
+      }
+
+      .reviews-list {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
     </style>
   </head>
   <body>
@@ -1365,7 +1472,7 @@
     </nav>
 
     <section class="detail-section">
-      <div class="back-button">
+      <div class="back-button" onclick="history.back()">
         <img src="/website_materials/icon_prev.svg" />
       </div>
       <div class="detail-hero">
@@ -1973,135 +2080,231 @@
       </div>
     </footer>
 
-    <div id="share-popup"></div>
-    <div id="reviews-popup"></div>
+    <!-- ==================== SHARE MODAL (Built-in) ==================== -->
+    <div class="modal-overlay" id="shareModal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3>Bagikan</h3>
+          <button class="modal-close-btn" id="closeShareModal">&times;</button>
+        </div>
+        <div class="modal-body">
+          <div class="share-options">
+            <div class="share-option" onclick="shareVia('whatsapp')">
+              <div class="share-option-icon" style="background: #25D366; color: white;">
+                <span>📱</span>
+              </div>
+              <span class="share-option-label">WhatsApp</span>
+            </div>
+            <div class="share-option" onclick="shareVia('facebook')">
+              <div class="share-option-icon" style="background: #1877F2; color: white;">
+                <span>📘</span>
+              </div>
+              <span class="share-option-label">Facebook</span>
+            </div>
+            <div class="share-option" onclick="shareVia('twitter')">
+              <div class="share-option-icon" style="background: #1DA1F2; color: white;">
+                <span>🐦</span>
+              </div>
+              <span class="share-option-label">Twitter</span>
+            </div>
+            <div class="share-option" onclick="shareVia('copy')">
+              <div class="share-option-icon" style="background: #6c757d; color: white;">
+                <span>🔗</span>
+              </div>
+              <span class="share-option-label">Salin Link</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== REVIEWS MODAL (Built-in) ==================== -->
+    <div class="modal-overlay" id="reviewsModal">
+      <div class="modal-content reviews-modal-content">
+        <div class="modal-header">
+          <h3>Semua Ulasan (67)</h3>
+          <button class="modal-close-btn" id="closeReviewsModal">&times;</button>
+        </div>
+        <div class="modal-body">
+          <div class="reviews-list">
+            <div class="review-card">
+              <div class="card-header">
+                <div class="reviewer-avatar">O</div>
+                <div class="reviewer-info">
+                  <div class="reviewer-name">Om Gatot</div>
+                  <div class="reviewer-stars">
+                    <img src="/website_materials/icon_rating-fill.svg" />
+                    <img src="/website_materials/icon_rating-fill.svg" />
+                    <img src="/website_materials/icon_rating-fill.svg" />
+                    <img src="/website_materials/icon_rating-fill.svg" />
+                  </div>
+                </div>
+              </div>
+              <p class="review-text">
+                Penginapan yang sangat nyaman dengan nuansa tradisional Jawa yang kental. Pelayanan ramah dan lokasi strategis.
+              </p>
+            </div>
+            <div class="review-card">
+              <div class="card-header">
+                <div class="reviewer-avatar">A</div>
+                <div class="reviewer-info">
+                  <div class="reviewer-name">Andi Pratama</div>
+                  <div class="reviewer-stars">
+                    <img src="/website_materials/icon_rating-fill.svg" />
+                    <img src="/website_materials/icon_rating-fill.svg" />
+                    <img src="/website_materials/icon_rating-fill.svg" />
+                    <img src="/website_materials/icon_rating-fill.svg" />
+                    <img src="/website_materials/icon_rating-fill.svg" />
+                  </div>
+                </div>
+              </div>
+              <p class="review-text">
+                Luar biasa! Fasilitas lengkap, kamar bersih, dan pemandangan indah. Pasti akan kembali lagi.
+              </p>
+            </div>
+            <div class="review-card">
+              <div class="card-header">
+                <div class="reviewer-avatar">S</div>
+                <div class="reviewer-info">
+                  <div class="reviewer-name">Siti Rahayu</div>
+                  <div class="reviewer-stars">
+                    <img src="/website_materials/icon_rating-fill.svg" />
+                    <img src="/website_materials/icon_rating-fill.svg" />
+                    <img src="/website_materials/icon_rating-fill.svg" />
+                  </div>
+                </div>
+              </div>
+              <p class="review-text">
+                Cukup bagus untuk harganya. Sarapan enak dan staff helpful. Sedikit improvement di kebersihan kamar mandi.
+              </p>
+            </div>
+            <div class="review-card">
+              <div class="card-header">
+                <div class="reviewer-avatar">B</div>
+                <div class="reviewer-info">
+                  <div class="reviewer-name">Budi Santoso</div>
+                  <div class="reviewer-stars">
+                    <img src="/website_materials/icon_rating-fill.svg" />
+                    <img src="/website_materials/icon_rating-fill.svg" />
+                    <img src="/website_materials/icon_rating-fill.svg" />
+                    <img src="/website_materials/icon_rating-fill.svg" />
+                  </div>
+                </div>
+              </div>
+              <p class="review-text">
+                Tempat yang sempurna untuk liburan keluarga. Anak-anak suka kolam renangnya!
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <div class="popup-overlay" id="popupOverlay"></div>
 
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     <script>
-      // ==================== EXISTING SCRIPTS ====================
+      // ==================== SHARE MODAL ====================
+      const shareButton = document.getElementById("share-button");
+      const shareModal = document.getElementById("shareModal");
+      const closeShareModal = document.getElementById("closeShareModal");
 
-      // Share Button
-      fetch("share_description.html")
-        .then((res) => res.text())
-        .then((html) => {
-          document.getElementById("share-popup").innerHTML = html;
+      shareButton.addEventListener("click", function() {
+        shareModal.classList.add("active");
+      });
 
-          const openSharePopup = document.getElementById("share-button");
-          const closeSharePopup = document.querySelector(".close-button");
-          const sharePopup = document.getElementById("sharePopup");
+      closeShareModal.addEventListener("click", function() {
+        shareModal.classList.remove("active");
+      });
 
-          function openPopup() {
-            sharePopup.classList.add("active");
-          }
+      shareModal.addEventListener("click", function(e) {
+        if (e.target === shareModal) {
+          shareModal.classList.remove("active");
+        }
+      });
 
-          function closePopup() {
-            sharePopup.classList.remove("active");
-          }
+      function shareVia(platform) {
+        const url = encodeURIComponent(window.location.href);
+        const title = encodeURIComponent("Sekar Jogja Heritage - Teman Singgah");
+        
+        switch(platform) {
+          case 'whatsapp':
+            window.open(`https://wa.me/?text=${title}%20${url}`, '_blank');
+            break;
+          case 'facebook':
+            window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}`, '_blank');
+            break;
+          case 'twitter':
+            window.open(`https://twitter.com/intent/tweet?url=${url}&text=${title}`, '_blank');
+            break;
+          case 'copy':
+            navigator.clipboard.writeText(window.location.href).then(function() {
+              alert('Link berhasil disalin!');
+            });
+            break;
+        }
+        shareModal.classList.remove("active");
+      }
 
-          openSharePopup.addEventListener("click", openPopup);
-          closeSharePopup.addEventListener("click", closePopup);
+      // ==================== REVIEWS MODAL ====================
+      const seeMoreButton = document.getElementById("see-more-button");
+      const reviewsModal = document.getElementById("reviewsModal");
+      const closeReviewsModal = document.getElementById("closeReviewsModal");
 
-          window.addEventListener("click", (event) => {
-            if (event.target === sharePopup) {
-              closePopup();
-            }
-          });
-        });
+      seeMoreButton.addEventListener("click", function() {
+        reviewsModal.classList.add("active");
+      });
 
-      // Save Button
+      closeReviewsModal.addEventListener("click", function() {
+        reviewsModal.classList.remove("active");
+      });
+
+      reviewsModal.addEventListener("click", function(e) {
+        if (e.target === reviewsModal) {
+          reviewsModal.classList.remove("active");
+        }
+      });
+
+      // ==================== SAVE BUTTON ====================
       const saveButton = document.getElementById("saveButton");
       const saveImage = document.getElementById("saveImage");
 
-      function toggleSave() {
+      saveButton.addEventListener("click", function() {
         const currentSrc = saveImage.getAttribute("src");
         if (currentSrc.includes("icon_save-nobg-on.svg")) {
-          saveImage.setAttribute(
-            "src",
-            "/website_materials/icon_save-nobg.svg"
-          );
+          saveImage.setAttribute("src", "/website_materials/icon_save-nobg.svg");
         } else {
-          saveImage.setAttribute(
-            "src",
-            "/website_materials/icon_save-nobg-on.svg"
-          );
+          saveImage.setAttribute("src", "/website_materials/icon_save-nobg-on.svg");
         }
-      }
+      });
 
-      saveButton.addEventListener("click", toggleSave);
-
-      // Reviews Popup
-      fetch("reviews_popup.html")
-        .then((res) => res.text())
-        .then((html) => {
-          document.getElementById("reviews-popup").innerHTML = html;
-
-          const openReviewsPopup = document.getElementById("see-more-button");
-          const closeReviewsPopup = document.querySelector(".close-button");
-          const reviewsPopup = document.getElementById("reviewsPopup");
-
-          function openPopup() {
-            reviewsPopup.classList.add("active");
-          }
-
-          function closePopup() {
-            reviewsPopup.classList.remove("active");
-          }
-
-          openReviewsPopup.addEventListener("click", openPopup);
-          closeReviewsPopup.addEventListener("click", closePopup);
-
-          window.addEventListener("click", (event) => {
-            if (event.target === reviewsPopup) {
-              closePopup();
-            }
-          });
-        });
-
-      // Like Button
+      // ==================== LIKE/DISLIKE BUTTONS ====================
       const likeButton = document.getElementById("likeButton");
       const likeImage = document.getElementById("likeImage");
-
-      function toggleLike() {
-        const likeActive = likeImage
-          .getAttribute("src")
-          .includes("icon_like-on.svg");
-        if (!likeActive) {
-          likeImage.setAttribute("src", "/website_materials/icon_like-on.svg");
-          dislikeImage.setAttribute(
-            "src",
-            "/website_materials/icon_dislike.svg"
-          );
-        } else {
-          likeImage.setAttribute("src", "/website_materials/icon_like.svg");
-        }
-      }
-      likeButton.addEventListener("click", toggleLike);
-
-      // Dislike Button
       const dislikeButton = document.getElementById("dislikeButton");
       const dislikeImage = document.getElementById("dislikeImage");
 
-      function toggleDislike() {
-        const dislikeActive = dislikeImage
-          .getAttribute("src")
-          .includes("icon_dislike-on.svg");
+      likeButton.addEventListener("click", function() {
+        const likeActive = likeImage.getAttribute("src").includes("icon_like-on.svg");
+        if (!likeActive) {
+          likeImage.setAttribute("src", "/website_materials/icon_like-on.svg");
+          dislikeImage.setAttribute("src", "/website_materials/icon_dislike.svg");
+        } else {
+          likeImage.setAttribute("src", "/website_materials/icon_like.svg");
+        }
+      });
+
+      dislikeButton.addEventListener("click", function() {
+        const dislikeActive = dislikeImage.getAttribute("src").includes("icon_dislike-on.svg");
         if (!dislikeActive) {
-          dislikeImage.setAttribute(
-            "src",
-            "/website_materials/icon_dislike-on.svg"
-          );
+          dislikeImage.setAttribute("src", "/website_materials/icon_dislike-on.svg");
           likeImage.setAttribute("src", "/website_materials/icon_like.svg");
         } else {
-          dislikeImage.setAttribute(
-            "src",
-            "/website_materials/icon_dislike.svg"
-          );
+          dislikeImage.setAttribute("src", "/website_materials/icon_dislike.svg");
         }
-      }
-      dislikeButton.addEventListener("click", toggleDislike);
+      });
 
-      // Map
+      // ==================== MAP ====================
       const map = L.map("map", {
         scrollWheelZoom: false,
         dragging: true,
@@ -2131,26 +2334,12 @@
 
       // ==================== CALENDAR POPUP ====================
       var monthNames = [
-        "Januari",
-        "Februari",
-        "Maret",
-        "April",
-        "Mei",
-        "Juni",
-        "Juli",
-        "Agustus",
-        "September",
-        "Oktober",
-        "November",
-        "Desember",
+        "Januari", "Februari", "Maret", "April", "Mei", "Juni",
+        "Juli", "Agustus", "September", "Oktober", "November", "Desember"
       ];
 
       var today = new Date();
-      var startDate = new Date(
-        today.getFullYear(),
-        today.getMonth(),
-        today.getDate()
-      );
+      var startDate = new Date(today.getFullYear(), today.getMonth(), today.getDate());
       var endDate = new Date(today.getFullYear(), today.getMonth() + 11, 1);
 
       var currentYear = today.getFullYear();
@@ -2186,17 +2375,12 @@
         closeGuestPopup();
         activeInputType = inputType;
 
-        // Add popup-active class to panel date section
         panelDateSection.classList.add("popup-active");
         calendarPopup.classList.add("active");
         popupOverlay.classList.add("active");
 
-        // Update active state
         updatePanelActiveState();
-
-        // Update displays
         updatePanelDisplays();
-
         renderCalendars();
       }
 
@@ -2207,7 +2391,6 @@
         checkoutInput.classList.remove("active");
         popupOverlay.classList.remove("active");
 
-        // Update displays
         updatePanelDisplays();
       }
 
@@ -2224,7 +2407,6 @@
       function updatePanelDisplays() {
         var isPopupActive = panelDateSection.classList.contains("popup-active");
 
-        // Update checkin display
         if (checkInDate) {
           checkinDisplay.textContent = formatDateShort(checkInDate);
           checkinDisplay.classList.add("filled");
@@ -2239,7 +2421,6 @@
           clearCheckinBtn.classList.add("hidden");
         }
 
-        // Update checkout display
         if (checkOutDate) {
           checkoutDisplay.textContent = formatDateShort(checkOutDate);
           checkoutDisplay.classList.add("filled");
@@ -2254,18 +2435,14 @@
           clearCheckoutBtn.classList.add("hidden");
         }
 
-        // Update calendar info
         updateCalendarInfo();
       }
 
       function updateCalendarInfo() {
         if (checkInDate && checkOutDate) {
-          var nights = Math.ceil(
-            (checkOutDate - checkInDate) / (1000 * 60 * 60 * 24)
-          );
+          var nights = Math.ceil((checkOutDate - checkInDate) / (1000 * 60 * 60 * 24));
           nightsCount.textContent = nights + " malam";
-          dateRange.textContent =
-            formatDateLong(checkInDate) + " – " + formatDateLong(checkOutDate);
+          dateRange.textContent = formatDateLong(checkInDate) + " – " + formatDateLong(checkOutDate);
         } else if (checkInDate) {
           nightsCount.textContent = "Pilih tanggal check-out";
           dateRange.textContent = formatDateLong(checkInDate) + " – ...";
@@ -2296,19 +2473,13 @@
         var nextYear = currentMonth === 11 ? currentYear + 1 : currentYear;
         month2Label.textContent = monthNames[nextMonth] + " " + nextYear;
 
-        if (
-          currentYear === startDate.getFullYear() &&
-          currentMonth === startDate.getMonth()
-        ) {
+        if (currentYear === startDate.getFullYear() && currentMonth === startDate.getMonth()) {
           prevMonthBtn.classList.add("disabled");
         } else {
           prevMonthBtn.classList.remove("disabled");
         }
 
-        if (
-          currentYear === endDate.getFullYear() &&
-          currentMonth === endDate.getMonth()
-        ) {
+        if (currentYear === endDate.getFullYear() && currentMonth === endDate.getMonth()) {
           nextMonthBtn.classList.add("disabled");
         } else {
           nextMonthBtn.classList.remove("disabled");
@@ -2363,12 +2534,7 @@
               dateEl.classList.add("cal-active");
             }
 
-            if (
-              checkInDate &&
-              checkOutDate &&
-              thisDate > checkInDate &&
-              thisDate < checkOutDate
-            ) {
+            if (checkInDate && checkOutDate && thisDate > checkInDate && thisDate < checkOutDate) {
               dateEl.classList.add("cal-in-range");
             }
           }
@@ -2595,21 +2761,13 @@
 
       function handleGuestButtonClick(type, action) {
         if (type === "adult") {
-          if (
-            action === "plus" &&
-            totalAdult < 16 &&
-            totalAdult + totalChild < 10
-          ) {
+          if (action === "plus" && totalAdult < 16 && totalAdult + totalChild < 10) {
             totalAdult++;
           } else if (action === "minus" && totalAdult > 1) {
             totalAdult--;
           }
         } else if (type === "child") {
-          if (
-            action === "plus" &&
-            totalChild < 16 &&
-            totalAdult + totalChild < 10
-          ) {
+          if (action === "plus" && totalChild < 16 && totalAdult + totalChild < 10) {
             totalChild++;
           } else if (action === "minus" && totalChild > 0) {
             totalChild--;
@@ -2646,15 +2804,28 @@
           handleGuestButtonClick(type, action);
         });
       });
-      
+
       popupOverlay.addEventListener("click", function () {
         closeCalendarPopup();
         closeGuestPopup();
       });
 
+      // ==================== KEYBOARD EVENT ====================
+      document.addEventListener("keydown", function(e) {
+        if (e.key === "Escape") {
+          shareModal.classList.remove("active");
+          reviewsModal.classList.remove("active");
+          closeCalendarPopup();
+          closeGuestPopup();
+        }
+      });
+
+      // ==================== INITIALIZE ====================
       updateGuestButtons();
       updatePanelDisplays();
       updateGuestDisplay();
+
+      console.log("Page loaded successfully!");
     </script>
   </body>
 </html>
